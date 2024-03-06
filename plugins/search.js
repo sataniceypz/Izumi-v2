@@ -2,6 +2,8 @@ const { command, isPrivate, getJson } = require("../lib/");
 const fetch = require("node-fetch");
 const axios = require("axios");
 
+
+/*
 command(
     {
         pattern: "sps",
@@ -32,10 +34,7 @@ renderLargerThumbnail: false,
 thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption: (txxt)}, {quoted: message })
     }
     );
-
-
-
-
+*/
 
 command(
     {
