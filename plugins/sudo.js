@@ -1,14 +1,16 @@
 const { command, isPrivate } = require("../lib/");
-const config = require("../config");
+const X = require("../config");
 const { SUDO } = require("../config");
 command(
-  { pattern: "gsudo ?(.*)", 
+  { pattern: "getsudo ?(.*)", 
     fromMe: isPrivate, 
     desc: "shows sudo numbers", 
     type: "heroku" 
   },
   async (message, match, mm) => {
-    let zeta = config.SUDO
+    let zeta = X.SUDO
 message.reply("```" + `SUDO number are : ${zeta}` + "```")
   }
 );
+
+// Zeta-XD 😦
