@@ -92,7 +92,7 @@ async function Abhiy() {
           }
         }
       });
-      console.log(" 𝗦𝗘𝗦𝗦𝗜𝗢𝗡 𝗜𝗗 𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗜𝗡𝗚⚙️");
+      console.log(" 𝗘𝘇𝗿𝗮-𝗫𝗗 𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬🔋");
 
       fs.readdirSync("./plugins").forEach((plugin) => {
         if (path.extname(plugin).toLowerCase() == ".js") {
