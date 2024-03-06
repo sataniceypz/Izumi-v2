@@ -31,6 +31,7 @@ thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }} }, {quoted: message })
 
 // ZETA BRO //
 
+
 command(
     {
         pattern: "insta",
@@ -40,15 +41,13 @@ command(
     },
     async (message, match) => {
     	match = match || message.reply_message.text
-   if (!match.includes("https://www.instagram"))return message.reply(`*_Need instagram Link_*`)
-      var { data } = await getJson(`https://vihangayt.me/download/instagram?url=${match}`);
-        
-        for (let i = 0; i < data.data.length; i++) {
-            await message.sendFromUrl(data.data[i].url, { caption: (config.CAPTION)})
+   if (!match)return message.reply(`*_Need instagram Link_*`)
+      var h = await getJson(`https://api.lokiser.xyz/api/loki/insta?url=${match}`);
+    for (const item of h.result) {
+            await message.sendFromUrl(item.download_link, { caption: (config.CAPTION)})
         }
              
 });
-
 
 
 // ZETA BRO //
@@ -102,7 +101,7 @@ thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption: `*${yt.result.titl
     );
     
 
-command(
+/* command(
     {
         pattern: "spotify",
         fromMe: isPrivate,
@@ -126,7 +125,7 @@ thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, }, {quoted: message })
     }
     );
 
-// Zeta Kunda //
+// Zeta Kunda // */
 
 command(
     {
@@ -137,14 +136,14 @@ command(
     },
     async (message, match) => {
     	match = match || message.reply_message.text
-   if (!match.includes("https://www.instagram"))return message.reply(`*_Need Story Link_*`)
-      var { data } = await getJson(`https://vihangayt.me/download/instagram?url=${match}`);
-        
-        for (let i = 0; i < data.data.length; i++) {
-            await message.sendFromUrl(data.data[i].url, { caption: (config.CAPTION)})
+   if (!match)return message.reply(`*_Need story instagram Link_*`)
+      var h = await getJson(`https://api.lokiser.xyz/api/loki/insta?url=${match}`);
+    for (const item of h.result) {
+            await message.sendFromUrl(item.download_link, { caption: (config.CAPTION)})
         }
              
 });
+
 
 
 // Andi ///
