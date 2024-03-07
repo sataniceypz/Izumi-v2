@@ -1,11 +1,11 @@
 {
   "name": "Ezra-XD",
   "description": "EZRA Multi Device whatsapp bot",
-  "logo": "https://i.imgur.com/lfcMtYg.jpeg",
+  "logo": "https://i.imgur.com/pae05LQ.jpeg",
   "keywords": ["whatsapp"],
-  "repository": "https://github.com/Louis-X0/EZRA-XD",
-  "website": "https://github.com/Louis-X0/EZRA-XD",
-  "success_url": "https://github.com/Louis-X0/EZRA-XD",
+  "repository": "https://github.com/Zeta-XD/ezraa",
+  "website": "https://github.com/Zeta-XD/ezraa",
+  "success_url": "https://github.com/Zeta-XD/ezraa",
   "stack": "container",
   "env": {
     "ANTI_LINK": {
@@ -14,10 +14,6 @@
     },
     "ANTILINK_ACTION": {
       "description": "kick",
-      "required": false
-    },
-    "RMBG_KEY": {
-      "description": "Remove bg api key ",
       "required": false
     },
     "SESSION_ID": {
@@ -31,22 +27,22 @@
      "AUDIO_DATA": {
       "description": "audio data , title;artist;image url",
       "required": "false",
-      "value": "𝐄𝐳𝐫𝐚 𝐗𝐃;𝐀𝐛𝐡𝐢𝐢𝐲;https://i.imgur.com/g8iNJNU.jpeg"
+      "value": "𝐳𝐞𝐭𝐚𝐚𝐡𝐡 ; 𝐞𝐳𝐫𝐚𝐚𝐡𝐡-𝐱𝐝 ; https://i.imgur.com/Ou56ggv.jpeg"
      },
      "CAPTION": {
       "description": "enter your media caption",
       "required": "false",
-      "value": "\n\n\n\n\n\n\n\n\n\n\n\n𝗘𝘇𝗿𝗮𝗮𝗮𝗮𝗵𝗵𝗵🥹🦋"
+      "value": "_𝐳𝐞𝐭𝐚𝐚𝐡𝐡👀🦋!_"
     },
        "STICKER_DATA": {
       "description": "Sticker pack name, eg : Ezra;©️Louis-X0",
       "required": "false",
-      "value": "𝐄𝐳𝐫𝐚 𝐗𝐃;©️𝐋𝐨𝐮𝐢𝐬-𝐗𝟎"
+      "value": "𝐙𝐞𝐭𝐚-𝐗𝐃;𝐁𝐚𝐝𝐚𝐧 𝐬𝐞𝐫⚇"
     },
        "BOT_INFO": {
-      "description": "Bot info : botname;ownername;imageurl;link",
+      "description": "Bot info : botname;ownername;imageurl - image or video",
       "required": "false",
-      "value": "𝛯𝛧𝑅𝛥 𝛸𝐷;𝐋𝐨𝐮𝐢𝐬-𝐗𝟎;https://i.imgur.com/o4bQB14.jpeg"
+      "value": "𝐄𝐳𝐫𝐚𝐡𝐡-𝐗𝐃;𝐙𝐞𝐭𝐚𝐡𝐡;https://i.imgur.com/nAkM1zV.mp4"
     },
      "ALWAYS_ONLINE": {
       "description": "Bot online online : true",
