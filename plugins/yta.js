@@ -1,4 +1,5 @@
-/*const { command, isPrivate } = require("../lib/");
+/*
+const { command, isPrivate } = require("../lib/");
 const fetch = require("node-fetch")
 command(
     {
@@ -24,3 +25,4 @@ renderLargerThumbnail: true,
 thumbnailUrl: `${yt.data.thumbnail}` }}, }, {quoted: message })
     }
     );
+*/
