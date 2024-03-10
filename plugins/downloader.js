@@ -2,7 +2,7 @@ const { command , isPrivate , getBuffer, getJson } = require("../lib");
 const fetch = require("node-fetch");
 const { CAPTION } = require("../config");
 const axios = require("axios");
-const config = require("../config");
+const X = require("../config");
 
 command(
     {
@@ -31,22 +31,21 @@ thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }} }, {quoted: message })
 
 // ZETA BRO //
 
-
 command(
-    {
-        pattern: "insta",
-        fromMe: isPrivate,
-        desc: "Instagram Video/Photo Downloader",
-        type: "downloader",
-    },
-    async (message, match) => {
-    	match = match || message.reply_message.text
+  {
+    pattern: "insta",
+    fromMe: isPrivate,
+    desc: "Instagram Reel/Post Downloader",
+    type: "downloader",
+  },
+  async (message, match) => {
+    match = match || message.reply_message.text
    if (!match)return message.reply(`*_Need instagram Link_*`)
-      var h = await getJson(`https://api.lokiser.xyz/api/loki/insta?url=${match}`);
-    for (const item of h.result) {
-            await message.sendFromUrl(item.download_link, { caption: (config.CAPTION)})
-        }
-             
+      var { data } = await getJson(`https://api.vihangayt.asia/downloader/ig?url=${match}`);
+        
+        for (let i = 0; i < data.data.length; i++) {
+            await message.sendFromUrl(data.data[i].url, { caption: (X.CAPTION)})
+            }
 });
 
 
@@ -55,16 +54,12 @@ command(
     {
         pattern: "ytv",
         fromMe: isPrivate,
-        desc: "Video Downloader 720p",
+        desc: "YouTube Video Downloader",
         type: "downloader",
     },
     async (message, match) => {
-        if (!match.includes("https://youtu")) return await message.sendMessage("*_Need a YouTube url_*");
-var ytmp4 = await
-                    fetch(`https://vihangayt.me/download/ytmp4?url=${match}`)
-        var yt = await ytmp4.json()
-        await message.client.sendMessage(message.jid, { text: `*Downloading ${yt.data.title}*` },{ quoted: message})
-                    await message.client.sendMessage(message.jid,{video:{ url: yt.data.vid_720p}, contextInfo: { externalAdReply: {
+        if (!match) return await message.reply("*_Need YouTube Url_*");
+await message.sendFromUrl(`https://api-brunosobrino.onrender.com/api/v1/ytmp4?url=${match}`, {contextInfo: { externalAdReply: {
 title: "𝐄𝐙𝐑𝐀-𝐗𝐃",
 body: "𝙑𝙞𝙙𝙚𝙤 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮",
 sourceUrl: "",
@@ -72,9 +67,8 @@ mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption : `_*${yt.data.title}*_`}, {quoted : message})
-    }
-    );
+thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption : (X.CAPTION)}, {quoted : message})
+});
 
 command(
     {
@@ -124,22 +118,21 @@ thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, }, {quoted: message })
     );
 
 // Zeta Kunda // */
-
 command(
-    {
-        pattern: "story",
-        fromMe: isPrivate,
-        desc: "Instagram story Downloader",
-        type: "downloader",
-    },
-    async (message, match) => {
-    	match = match || message.reply_message.text
-   if (!match)return message.reply(`*_Need story instagram Link_*`)
-      var h = await getJson(`https://api.lokiser.xyz/api/loki/insta?url=${match}`);
-    for (const item of h.result) {
-            await message.sendFromUrl(item.download_link, { caption: (config.CAPTION)})
-        }
-             
+  {
+    pattern: "story",
+    fromMe: isPrivate,
+    desc: "Instagram Story Downloader",
+    type: "downloader",
+  },
+  async (message, match) => {
+    match = match || message.reply_message.text
+   if (!match)return message.reply(`*_Need Story Link_*`)
+      var { data } = await getJson(`https://api.vihangayt.asia/downloader/ig?url=${match}`);
+        
+        for (let i = 0; i < data.data.length; i++) {
+            await message.sendFromUrl(data.data[i].url, { caption: (X.CAPTION)})
+            }
 });
 
 
@@ -165,6 +158,6 @@ mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption: (config.CAPTION)}, {quoted: message})
+thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption: (X.CAPTION)}, {quoted: message})
     }
     );
