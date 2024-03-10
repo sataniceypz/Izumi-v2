@@ -32,22 +32,50 @@ thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }} }, {quoted: message })
 // ZETA BRO //
 
 command(
-  {
-    pattern: "insta",
-    fromMe: isPrivate,
-    desc: "Instagram Reel/Post Downloader",
-    type: "downloader",
-  },
-  async (message, match) => {
-    match = match || message.reply_message.text
-   if (!match)return message.reply(`*_Need instagram Link_*`)
-      var { data } = await getJson(`https://api.vihangayt.asia/downloader/ig?url=${match}`);
-        
-        for (let i = 0; i < data.data.length; i++) {
-            await message.sendFromUrl(data.data[i].url, { caption: (X.CAPTION)})
-            }
-});
+    {
+        pattern: "video",
+        fromMe: isPrivate,
+        desc: "Yt Video Downloader",
+        type: "downloader",
+    },
+    async (message, match) => {
+        if (!match) return await message.sendMessage("*_Need a Video Name_*");
+let {result} = await getJson(`https://api-aswin-sparky.koyeb.app/api/downloader/yt_video?search=${match}`);
+await message.client.sendMessage(message.jid, { text: `*_Downloading ${result.title}_*` },{ quoted: message})
+return await message.sendFromUrl(result.url, {contextInfo: { externalAdReply: {
+title: "𝐄𝐙𝐑𝐀-𝐗𝐃",
+body: "𝙑𝙞𝙙𝙚𝙤 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮",
+sourceUrl: "",
+mediaUrl: "",
+mediaType: 1,
+showAdAttribution: true,
+renderLargerThumbnail: false,
+thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption: `*${result.title}*`}, {quoted: message })
+    });
 
+// Zeta-XD 
+
+command(
+    {
+        pattern: "yta",
+        fromMe: isPrivate,
+        desc: "YouTube song Downloader",
+        type: "downloader",
+    },
+    async (message, match) => {
+        if (!match) return await message.reply("*_Need YouTube Url_*");
+        let dat = `https://api-brunosobrino.onrender.com/api/v1/ytmp3?url=${match}`
+await message.client.sendMessage(message.jid, { audio :{url: dat },  mimetype:"audio/mpeg", contextInfo: { externalAdReply: {
+title: "𝐄𝐙𝐑𝐀-𝐗𝐃",
+body: "𝙎𝙤𝙣𝙜 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮",
+sourceUrl: "",
+mediaUrl: "",
+mediaType: 1,
+showAdAttribution: true,
+renderLargerThumbnail: false,
+thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, }, {quoted: message })
+    }
+    );
 
 // ZETA BRO //
 command(
@@ -70,27 +98,7 @@ renderLargerThumbnail: false,
 thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption : (X.CAPTION)}, {quoted : message})
 });
 
-command(
-    {
-        pattern: "video",
-        fromMe: isPrivate,
-        desc: "Yt Video Downloader",
-        type: "downloader",
-    },
-    async (message, match) => {
-        if (!match) return await message.sendMessage("*_Need a Video Name_*");
-let {result} = await getJson(`https://api-aswin-sparky.koyeb.app/api/downloader/yt_video?search=${match}`);
-await message.client.sendMessage(message.jid, { text: `*_Downloading ${result.title}_*` },{ quoted: message})
-return await message.sendFromUrl(result.url, {contextInfo: { externalAdReply: {
-title: "𝐄𝐙𝐑𝐀-𝐗𝐃",
-body: "𝙑𝙞𝙙𝙚𝙤 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮",
-sourceUrl: "",
-mediaUrl: "",
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption: `*${result.title}*`}, {quoted: message })
-    });
+
 // Zeta-XD 
 
 /* command(
@@ -118,6 +126,25 @@ thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, }, {quoted: message })
     );
 
 // Zeta Kunda // */
+command(
+  {
+    pattern: "insta",
+    fromMe: isPrivate,
+    desc: "Instagram Reel/Post Downloader",
+    type: "downloader",
+  },
+  async (message, match) => {
+    match = match || message.reply_message.text
+   if (!match)return message.reply(`*_Need instagram Link_*`)
+      var { data } = await getJson(`https://api.vihangayt.asia/downloader/ig?url=${match}`);
+        
+        for (let i = 0; i < data.data.length; i++) {
+            await message.sendFromUrl(data.data[i].url, { caption: (X.CAPTION)})
+            }
+});
+
+// Zeta-XD
+
 command(
   {
     pattern: "story",
