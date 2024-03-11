@@ -1,6 +1,6 @@
 {
-  "name": "Ezra-XD",
-  "description": "EZRA Multi Device whatsapp bot",
+  "name": "Zeta-XD",
+  "description": "Zeta-XD Multi Device whatsapp bot",
   "logo": "https://i.imgur.com/pae05LQ.jpeg",
   "keywords": ["whatsapp"],
   "repository": "https://github.com/Zeta-XD/ezraa",
@@ -17,7 +17,7 @@
       "required": false
     },
     "SESSION_ID": {
-      "description": "Ezra-XD session id",
+      "description": "Zeta-XD session id",
       "required": true
     },
     "LOGS": {
@@ -35,7 +35,7 @@
       "value": "_𝐳𝐞𝐭𝐚𝐚𝐡𝐡👀🦋!_"
     },
        "STICKER_DATA": {
-      "description": "Sticker pack name, eg : Ezra;©️Louis-X0",
+      "description": "Sticker pack name, eg : 𝐙𝐞𝐭𝐚-𝐗𝐃;𝐁𝐚𝐝𝐚𝐧 𝐬𝐞𝐫⚇",
       "required": "false",
       "value": "𝐙𝐞𝐭𝐚-𝐗𝐃;𝐁𝐚𝐝𝐚𝐧 𝐬𝐞𝐫⚇"
     },
