@@ -346,7 +346,7 @@ X-Asena - X-Electra
 
 command(
   {
-    pattern: "install ?(.*)",
+    pattern: "plugin ?(.*)",
     fromMe: true,
     desc: "Install External plugins",
     type:'user'
@@ -403,7 +403,7 @@ X-Asena - X-Electra
 
 command(
   { 
-      pattern: "plugin", 
+      pattern: "allplug", 
       fromMe: true, 
       desc: "plugin list",
       type:'user'},
@@ -450,7 +450,7 @@ command(
       await plugin[0].destroy();
       delete require.cache[require.resolve("./" + match + ".js")];
       fs.unlinkSync("./plugins/" + match + ".js");
-      await message.sendMessage(`Plugin ${match} deleted`);
+      await message.sendMessage(`*_Plugin ${match} deleted, restart_*`);
     }
   }
 );
