@@ -239,7 +239,7 @@ Description: ${i.desc}\`\`\``);
   ⚈ ┋ *PREFIX*: ${config.HANDLERS}
   ⚈ ┋ *VERSION*: ${require("../package.json").version}
     ╚┅┅┅┅┅┅┅┅┅┅┅┅⚅
-╚┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉⚇\n ${readMore}\n╔┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄⛒`;
+╚┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉⚇\n ${readMore}\n╔┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄⛒`;
 
       let cmnd = [];
       let cmd;
@@ -269,7 +269,7 @@ Description: ${i.desc}\`\`\``);
         });
         menu += `\n   ╚─────────────┈⚆`;
       });
-menu += `\n╚┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄⛒`;
+menu += `\n╚┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄⛒`;
       let penu = tiny(menu)
       let img = config.BOT_INFO.split(';')[2]
       return await message.sendFromUrl(img, {fileLength: "500000000", gifPlayback: true, contextInfo: { externalAdReply: {
