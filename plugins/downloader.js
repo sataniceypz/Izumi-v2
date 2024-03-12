@@ -54,18 +54,10 @@ command(
         desc: "YouTube song Downloader",
         type: "downloader",
     },
-    async (message, match) => {
+    async (message, match, client) => {
         if (!match) return await message.reply("*_Need YouTube Url_*");
-        let dat = `https://api-brunosobrino.onrender.com/api/v1/ytmp3?url=${match}`
-await message.client.sendMessage(message.jid, { audio :{url: dat },  mimetype:"audio/mpeg", contextInfo: { externalAdReply: {
-title: "𝐄𝐙𝐑𝐀-𝐗𝐃",
-body: "𝙎𝙤𝙣𝙜 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮",
-sourceUrl: "",
-mediaUrl: "",
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, }, {quoted: message })
+        let dat = `https://api.lokiser.xyz/youtube/yta?url=${match}`
+await message.client.sendMessage(message.jid, { audio :{ url: dat },  mimetype:"audio/mpeg" }, {quoted: message })
     }
     );
 
@@ -79,17 +71,9 @@ command(
     },
     async (message, match) => {
         if (!match) return await message.reply("*_Need YouTube Url_*");
-await message.sendFromUrl(`https://api-brunosobrino.onrender.com/api/v1/ytmp4?url=${match}`, {contextInfo: { externalAdReply: {
-title: "𝐄𝐙𝐑𝐀-𝐗𝐃",
-body: "𝙑𝙞𝙙𝙚𝙤 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮",
-sourceUrl: "",
-mediaUrl: "",
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption : (X.CAPTION)}, {quoted : message})
+let dat = `https://api.lokiser.xyz/youtube/ytv?url=${match}`
+await message.sendFromUrl(dat, {caption :"𝐳𝐞𝐭𝐚𝐚𝐚𝐡𝐡 ࿊" }, {quoted: message })
 });
-
 
 // Zeta-XD 
 
