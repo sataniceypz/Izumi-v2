@@ -104,7 +104,7 @@ thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, }, {quoted: message })
 // Zeta Kunda // */
 command(
   {
-    pattern: "insta",
+    pattern: "2insta",
     fromMe: isPrivate,
     desc: "Instagram Reel/Post Downloader",
     type: "downloader",
@@ -119,6 +119,19 @@ command(
             }
 });
 
+command(
+  {
+    pattern: "insta",
+    fromMe: isPrivate,
+    desc: "Instagram Reel/Post Downloader",
+    type: "downloader",
+  },
+  async (message, match) => {
+    match = match || message.reply_message.text
+   if (!match)return message.reply(`*_Need instagram Link_*`)
+let {data} = await getJson(`https://api-aswin-sparky.koyeb.app/api/downloader/igdl?url=${match}`)
+await message.sendFromUrl(`${data[0].url}`, {caption: "*zetaahhhh👀*"})
+});
 // Zeta-XD
 
 command(
