@@ -577,6 +577,55 @@ you may not use this file except in compliance with the License.
 Louis-X0 - Zeta-X0
 */
 
+command(
+  {
+    pattern: "fullgpp$",
+    fromMe: true,
+    desc: "Change Group Icon",
+    type: "group",
+  },
+  async (message, match,m) => {
+  if (!message.isGroup) return await message.reply("*_This command only works in group chats_*")
+    var admin = await isAdmin(message.jid, message.user, message.client);
+    if (!admin) return await message.reply("*_I'm not admin_*");
+    if (!message.reply_message.image)
+      return await message.reply("*_Reply to a photo_*");
+let media = await m.quoted.download();
+    await updateProfilePicture(message.jid, media, message);
+    return await message.reply("*_Profile Picture Updated_*");
+    }
+    );
+
+async function updateProfilePicture(jid, imag, message) {
+  const { query } = message.client;
+  const { img } = await generateProfilePicture(imag);
+  await query({
+    tag: "iq",
+    attrs: {
+      to: jid,
+      type: "set",
+      xmlns: "w:profile:picture",
+    },
+    content: [
+      {
+        tag: "picture",
+        attrs: { type: "image" },
+        content: img,
+      },
+    ],
+  });
+}
+
+async function generateProfilePicture(buffer) {
+  const jimp = await Jimp.read(buffer);
+  const min = jimp.getWidth();
+  const max = jimp.getHeight();
+  const cropped = jimp.crop(0, 0, min, max);
+  return {
+    img: await cropped.scaleToFit(324, 720).getBufferAsync(Jimp.MIME_JPEG),
+    preview: await cropped.normalize().getBufferAsync(Jimp.MIME_JPEG),
+  };
+}
 
 command(
   {
