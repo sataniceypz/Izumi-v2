@@ -1,4 +1,4 @@
-const { command, isPrivate, getJson } = require("../lib/");
+/*const { command, isPrivate, getJson } = require("../lib/");
 command(
     {
         pattern: "2gpt",
@@ -21,3 +21,4 @@ await message.client.relayMessage(message.jid, {
         }
       }, {});
 });
+*/
