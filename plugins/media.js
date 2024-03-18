@@ -1,42 +1,15 @@
 const {
   Function,
   command,
-  qrcode,
   webp2mp4,
-  isUrl,
-  isPrivate,
-  getJson,
-  getUrl,
-  isIgUrl,
-  findMusic,
+  isPrivate
 } = require("../lib/");
-const { yta, ytIdRegex, ytv } = require("../lib/yotube");
-const { search } = require("yt-search");
-let gis = require("g-i-s");
-const { AddMp3Meta } = require("../lib");
-const googleTTS = require('google-tts-api')
-const jimp = require("jimp");
-const QRReader = require("qrcode-reader");
-const { RMBG_KEY } = require("../config");
-let { unlink } = require("fs/promises");
-const got = require("got");
-const FormData = require("form-data");
-const stream = require("stream");
-const { promisify } = require("util");
-const pipeline = promisify(stream.pipeline);
-const fs = require("fs");
-const fetch = require("node-fetch");
-const config = require("../config");
+const gis = require("g-i-s");
+const googleTTS = require('google-tts-api');
+const X = require("../config");
 const { CAPTION } = require("../config");
-/* Copyright (C) 2022 X-Electra.
-Licensed under the  GPL-3.0 License;
-you may not use this file except in compliance with the License.
-X-Asena - X-Electra
-*/
 
-
-
-Function(
+command(
   {
     pattern: "img",
     fromMe: isPrivate,
@@ -121,13 +94,6 @@ let res = await m.quoted.download();
   );
 
 
-
-/* Copyright (C) 2022 X-Electra.
-Licensed under the  GPL-3.0 License;
-you may not use this file except in compliance with the License.
-X-Asena - X-Electra
-*/
-
 command(
   {
     pattern: "photo",
@@ -141,15 +107,10 @@ command(
     if (message.reply_message.mtype !== "stickerMessage")
       return await message.reply("*_Not a sticker_*");
     let buff = await m.quoted.download();
-    return await message.sendMessage(buff,{mimetype: 'image/jpeg', caption: (config.CAPTION), quoted: message }, "image")
+    return await message.sendMessage(buff,{mimetype: 'image/jpeg', caption: (X.CAPTION), quoted: message }, "image")
   }
 );
 
-/* Copyright (C) 2022 X-Electra.
-Licensed under the  GPL-3.0 License;
-you may not use this file except in compliance with the License.
-X-Asena - X-Electra
-*/
 
 command(
   {
@@ -165,15 +126,10 @@ command(
       return await message.reply("*_Not a sticker_*");
     let buff = await m.quoted.download();
     let buffer = await webp2mp4(buff);
-    return await message.sendMessage(buffer,{mimetype: 'video/mp4', caption: (config.CAPTION), quoted: message }, "video")
+    return await message.sendMessage(buffer,{mimetype: 'video/mp4', caption: (X.CAPTION), quoted: message }, "video")
   }
 );
 
-/* Copyright (C) 2022 X-Electra.
-Licensed under the  GPL-3.0 License;
-you may not use this file except in compliance with the License.
-X-Asena - X-Electra
-*/
 
 const { toAudio } = require("../lib/media");
 command(
@@ -204,10 +160,10 @@ command(
     if (message.reply_message.mtype == "stickerMessage"){
       let buff = await m.quoted.download();
    let buffer = await webp2mp4(buff);
-   await message.client.sendMessage(message.jid, { video: { url : buffer }, gifPlayback: true, caption: (config.CAPTION)},{ quoted: message });
+   await message.client.sendMessage(message.jid, { video: { url : buffer }, gifPlayback: true, caption: (X.CAPTION)},{ quoted: message });
    } else if(message.reply_message.video){
     let buff = await m.quoted.download();
-   await message.client.sendMessage(message.jid, { video: buff, gifPlayback: true, caption: (config.CAPTION)},{ quoted: message });
+   await message.client.sendMessage(message.jid, { video: buff, gifPlayback: true, caption: (X.CAPTION)},{ quoted: message });
   }
   }
 );
