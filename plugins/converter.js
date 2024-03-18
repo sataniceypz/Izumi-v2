@@ -1,5 +1,5 @@
 const config = require("../config");
-const { command, isPrivate, getJson, sleep, tiny, getBuffer, styletext, listall } = require("../lib/");
+const { command, isPrivate, getJson, sleep, tiny, AddMp3Meta, getBuffer, toAudio, styletext, listall } = require("../lib/");
 const { Image } = require("node-webpmux");
 /* Copyright (C) 2024 Louis-X0.
 Licensed under the  GPL-3.0 License;
@@ -85,15 +85,7 @@ command(
     let buff = await m.quoted.download();
     message.sendMessage(
       buff,
-      { packname: config.STICKER_DATA.split(";")[0], author: config.STICKER_DATA.split(";")[1], contextInfo: { externalAdReply: {
-title: "𝐄𝐙𝐑𝐀-𝐗𝐃",
-body: "𝘾𝙤𝙣𝙫𝙚𝙧𝙩𝙚𝙙 𝙄𝙣𝙩𝙤 𝙎𝙩𝙞𝙘𝙠𝙚𝙧",
-sourceUrl: "",
-mediaUrl: "",
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }} },
+      { packname: config.STICKER_DATA.split(";")[0], author: config.STICKER_DATA.split(";")[1] },
       "sticker"
     );
   }
@@ -144,48 +136,38 @@ command(
   }
 );
 
-/* Copyright (C) 2022 X-Electra.
-Licensed under the  GPL-3.0 License;
-you may not use this file except in compliance with the License.
-X-Asena - X-Electra
-*/
-
 command(
   {
     pattern: "take",
     fromMe: isPrivate,
-    desc: "Changes Exif data of stickers",
+    desc: "change audio title,album/sticker author,packname",
     type: "converter",
   },
   async (message, match, m) => {
-    if (!message.reply_message && !message.reply_message.sticker)
-      return await message.reply("*_Reply to sticker_*");
+    if (!message.reply_message || (!message.reply_message.video && !message.reply_message.audio && !message.reply_message.sticker)) return await message.reply('*_Reply at audio/voice/video!_*')  
+    if(message.reply_message.audio || message.reply_message.video) {
+    let buff = await toAudio(await m.quoted.download());
+    let logo = match && match.split(/[,;]/)[2] ? match.split(/[,;]/)[2] : config.AUDIO_DATA.split(/[;]/)[2];
+    let imgbuff = await getBuffer(logo.trim());
+    let NaMe = match ? match.split(/[|,;]/) ? match.split(/[|,;]/)[0] : match : config.AUDIO_DATA.split(/[|,;]/)[0] ? config.AUDIO_DATA.split(/[|,;]/)[0] : config.AUDIO_DATA;
+    const aud = await AddMp3Meta(buff, imgbuff, {title: NaMe, artist: "hi"});
+    return await message.client.sendMessage(message.jid, {
+        audio: aud,
+        mimetype: 'audio/mpeg',
+    });
+    } else if(message.reply_message.sticker){
     let buff = await m.quoted.download();
-    let [packname, author] = match.split(",");
+    let [packname, author] = match.split(";");
     await message.sendMessage(
       buff,
       {
         packname: packname || config.STICKER_DATA.split(";")[0],
-        author: author || config.STICKER_DATA.split(";")[1], contextInfo: { externalAdReply: {
-title: "𝐄𝐙𝐑𝐀-𝐗𝐃",
-body: `𝙏𝙖𝙠𝙚𝙙 𝙏𝙤 ${match}`,
-sourceUrl: "",
-mediaUrl: "",
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}
+        author: author || config.STICKER_DATA.split(";")[1]
       },
       "sticker"
     );
-  }
-);
-
-/* Copyright (C) 2022 X-Electra.
-Licensed under the  GPL-3.0 License;
-you may not use this file except in compliance with the License.
-X-Asena - X-Electra
-*/
+    }
+});
 
 command(
   {
