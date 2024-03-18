@@ -11,7 +11,7 @@ command(
 let kko = await message.sendFromUrl("https://i.imgur.com/dHVUYg6.jpeg",
       {caption: "*Thinking....👀*"}, {quoted: message})
       let {result} = await getJson(`https://guruapi.tech/api/chatgpt?text=${match}`);
-await client.relayMessage(message.jid, {
+await message.client.relayMessage(message.jid, {
         protocolMessage: {
           key: kko.key,
           type: 14,
