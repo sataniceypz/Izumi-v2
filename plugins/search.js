@@ -2,9 +2,6 @@ const { command, isPrivate, getJson } = require("../lib/");
 const fetch = require("node-fetch");
 const axios = require("axios");
 
-
-const { command, isPrivate, getJson } = require("../lib/");
-
 command(
     {
         pattern: "sps",
