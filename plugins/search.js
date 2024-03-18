@@ -7,7 +7,7 @@ const { command, isPrivate, getJson } = require("../lib/");
 
 command(
     {
-        pattern: "so",
+        pattern: "sps",
         fromMe: isPrivate,
         desc: "spotify song searcher",
         type: "search",
