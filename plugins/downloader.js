@@ -34,15 +34,7 @@ command(
         if (!match) return await message.sendMessage("*_Need a Video Name_*");
 let {result} = await getJson(`https://api-aswin-sparky.koyeb.app/api/downloader/yt_video?search=${match}`);
 await message.client.sendMessage(message.jid, { text: `*_Downloading ${result.title}_*` },{ quoted: message})
-return await message.sendFromUrl(result.url, {contextInfo: { externalAdReply: {
-title: "𝐄𝐙𝐑𝐀-𝐗𝐃",
-body: "𝙑𝙞𝙙𝙚𝙤 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮",
-sourceUrl: "",
-mediaUrl: "",
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption: `*${result.title}*`}, {quoted: message })
+return await message.sendFromUrl(result.url, { caption: `*${result.title}*` }, {quoted: message })
     });
 
 // Zeta-XD 
@@ -77,29 +69,19 @@ await message.sendFromUrl(dat, {caption :"𝐳𝐞𝐭𝐚𝐚𝐚𝐡𝐡 ࿊" 
 
 // Zeta-XD 
 
-/* command(
+command(
     {
         pattern: "spotify",
         fromMe: isPrivate,
-        desc: "Spotify Downloader",
+        desc: "Spotify Song Downloader",
         type: "downloader",
     },
-    async (message, match) => {
-        if (!match) return await message.sendMessage("*_Need a spotify  url_*");
-var sex = await fetch(`https://vihangayt.me/download/spotify?url=${match}`);
-        var fek = await sex.json();
-        message.reply(`                       *DOWNLOADED*\n\n> *SONG* : ${fek.data.song} \n> *ARTIST* : ${fek.data.artist} \n> *RELEASED* : ${fek.data.release_date}\n\n𝐄𝐙𝐑𝐀 𝐗𝐃`)
-        await message.client.sendMessage(message.jid, { audio :{ url: fek.data.url } , mimetype : 'audio/mpeg', contextInfo: { externalAdReply: {
-title: "𝐄𝐙𝐑𝐀-𝐗𝐃",
-body: `🎧 ${fek.data.song}`,
-sourceUrl: "",
-mediaUrl: "",
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, }, {quoted: message })
-    }
-    );
+    async (message, match, m) => {
+match = match || message.reply_message.text;
+	if(!match) return await message.reply("*_Need Spotify Url_*");
+let buff = (await getJson(`https://api.maher-zubair.tech/download/spotify?url=${match}`)).result.url
+await message.sendFromUrl(buff, {quoted: message})
+})
 
 // Zeta Kunda // */
 command(
@@ -166,14 +148,6 @@ command(
     async (message, match) => {
         if (!match) return await message.sendMessage("*_Need Pinterest Url_*");
 var {result} = await getJson(`https://api.lokiser.xyz/api/pinterestdl?link=${match}`)
-await message.sendFromUrl(result.LokiXer.url,{ contextInfo: { externalAdReply: {
-title: "𝐄𝐙𝐑𝐀-𝐗𝐃",
-body: ``,
-sourceUrl: "",
-mediaUrl: "",
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption: (X.CAPTION)}, {quoted: message})
+await message.sendFromUrl(result.LokiXer.url,{ caption: (X.CAPTION) }, {quoted: message})
     }
     );
