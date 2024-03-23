@@ -260,7 +260,7 @@ Description: ${i.desc}\`\`\``);
       cmnd.sort();
       category.sort().forEach((cmmd) => {
         menu += `\n   ╔─────────────┈⚆`;
-        menu += `\n   ࿂┊  ❲ *${cmmd.toUpperCase()}* 」`;
+        menu += `\n   ࿂┊  ❲ *${cmmd.toUpperCase()}* ❳`;
         menu += `\n   ╚┬────────────┈⚆`
         menu += `\n   ╔┴────────────┈⚆`;
         let comad = cmnd.filter(({ type }) => type == cmmd);
@@ -272,15 +272,15 @@ Description: ${i.desc}\`\`\``);
 menu += `\n╚┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄⛒`;
       let penu = tiny(menu)
       let img = config.BOT_INFO.split(';')[2]
-      return await message.sendFromUrl(img, {fileLength: "500000000", gifPlayback: true, contextInfo: { externalAdReply: {
-title: "𝐙𝐞𝐭𝐚𝐚𝐚𝐡𝐡 ⛮",
-body: "",
-sourceUrl: "",
-mediaUrl: "",
-mediaType: 1,
-showAdAttribution: false,
-renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/JM12ynh.jpeg" }}, caption: (penu)}, {quoted: message })
+      return await message.sendFromUrl(img, {fileLength: "500000000", gifPlayback: true, contextInfo: {
+      mentionedJid: [m.sender],
+      forwardingScore: 999,
+      isForwarded: true,
+      forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363239634100086@newsletter',
+      newsletterName: "𝗭𝗲𝘁𝗮-𝗫𝗗 ⛮",
+      serverMessageId: -1
+            }}}, caption: (penu)}, {quoted: message })
     }
 }catch(e){
 message.reply(e)
