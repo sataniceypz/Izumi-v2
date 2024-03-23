@@ -10,17 +10,9 @@ command(
         type: "downloader",
     },
     async (message, match) => {
-match = match || message.reply_message.text
+match = match || m.quoted.text;
 if (!match)return message.reply(`*_Need a imgur/graph Link_*`)
-return await message.sendFromUrl(match, { contextInfo: { externalAdReply: {
-title: "𝐄𝐙𝐑𝐀-𝐗𝐃",
-body: ``,
-sourceUrl: "",
-mediaUrl: "",
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption: (X.CAPTION)}, {quoted: message})
+return await message.sendFromUrl(match, { caption: (X.CAPTION) }, {quoted: message})
 });
 
 // Zeta-XD
