@@ -84,7 +84,7 @@ await message.sendFromUrl(buff, {quoted: message})
 })
 
 // Zeta Kunda // */
-command(
+/*command(
   {
     pattern: "2insta",
     fromMe: isPrivate,
@@ -99,7 +99,7 @@ command(
         for (let i = 0; i < data.data.length; i++) {
             await message.sendFromUrl(data.data[i].url, { caption: (X.CAPTION)})
             }
-});
+});*/
 
 command(
   {
@@ -116,7 +116,7 @@ await message.sendFromUrl(`${data[0].url}`, {caption: "*zetaahhhh👀*"})
 });
 // Zeta-XD
 
-command(
+/*command(
   {
     pattern: "story",
     fromMe: isPrivate,
@@ -131,7 +131,7 @@ command(
         for (let i = 0; i < data.data.length; i++) {
             await message.sendFromUrl(data.data[i].url, { caption: (X.CAPTION)})
             }
-});
+});*/
 
 
 
