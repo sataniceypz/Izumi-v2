@@ -2,7 +2,7 @@ const { command, isPrivate } = require("../lib/");
 const { toPTT } = require("../lib/media");
 command(
   {
-    pattern: "wawe",
+    pattern: "wave",
     fromMe: isPrivate,
     desc: "converts video/audio/voice to voice",
     type: "converter",
@@ -12,6 +12,6 @@ command(
     let buff = await m.quoted.download();
         let media = await toPTT(buff);
 
-        return await message.sendMessage(media, { mimetype: 'audio/mpeg', ptt: true }, quoted: message }, "audio");
+        return await message.sendMessage(media, { mimetype: 'audio/mpeg', ptt: true, quoted: message }, "audio");
   }
 );
