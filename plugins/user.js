@@ -280,7 +280,7 @@ menu += `\n╚┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄⛒`;
       newsletterJid: '120363239634100086@newsletter',
       newsletterName: "𝗭𝗲𝘁𝗮-𝗫𝗗 ⛮",
       serverMessageId: -1
-            }}}, caption: (penu)}, {quoted: message })
+            }}, caption: (penu)}, {quoted: message })
     }
 }catch(e){
 message.reply(e)
