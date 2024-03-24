@@ -271,8 +271,9 @@ Description: ${i.desc}\`\`\``);
       });
 menu += `\n╚┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄⛒`;
       let penu = tiny(menu)
-      let img = config.BOT_INFO.split(';')[2]
-      return await message.sendFromUrl(img, {fileLength: "500000000", gifPlayback: true, contextInfo: {
+      let epi = ["https://i.imgur.com/lyUsPEG.mp4","https://i.imgur.com/BDZvhdr.mp4","https://i.imgur.com/b7Fs3Dj.mp4","https://i.imgur.com/TvraAS1.mp4","https://i.imgur.com/u2JxQWJ.mp4","https://i.imgur.com/kklqQN7.mp4","https://i.imgur.com/RiWfxeB.mp4","https://i.imgur.com/8Zr3Tus.mp4","https://i.imgur.com/RsvHoat.mp4","https://i.imgur.com/yxmaZUU.mp4"];
+      let vd = epi[Math.floor(Math.random()*epi.length)];
+      return await message.sendFromUrl(vd, {fileLength: "500000000", gifPlayback: true, contextInfo: {
       mentionedJid: [m.sender],
       forwardingScore: 999,
       isForwarded: true,
@@ -325,15 +326,9 @@ command(
       if (desc) menu += `\n│  Use: \`\`\`${desc}\`\`\``;
       menu += `\n│\n`;
     });
-    menu += `╰───────┈┫「 𝐄𝐙𝐑𝐀-𝐗𝐃-𝐁𝐎𝐓 」┣┈────♡`;
-    return await message.reply(message.jid, { text: (tiny(menu)), contextInfo: { externalAdReply: {
-title: "𝚵𝚭𝚪𝚫-𝚾𝐃",
-sourceUrl: "",
-mediaUrl: "https://instagram.com/abhiiiiiyh",
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/PlDhcfI.jpeg" }} }) })
+    menu += `╰───────┈┫「 𝐙𝐄𝐓𝐀-𝐗𝐃-𝐁𝐎𝐓 」┣┈────♡`;
+    return await message.reply(message.jid, { text: (tiny(menu)) })
+})
 
 
 
