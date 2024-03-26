@@ -1,10 +1,10 @@
-const { command, isPrivate } = require("../lib");
+const { command } = require("../lib");
 const fetch = require("node-fetch");
 const config = require("../config");
 command(
     {
         pattern: "xvd",
-        fromMe: isPrivate,
+        fromMe: true,
         desc: "xv Downloader",
         type: "downloader",
     },
