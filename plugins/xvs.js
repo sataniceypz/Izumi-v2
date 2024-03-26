@@ -1,9 +1,9 @@
-const { command, isPrivate } = require("../lib");
+const { command } = require("../lib");
 const fetch = require("node-fetch");
 command(
     {
         pattern: "xvs",
-        fromMe: isPrivate,
+        fromMe: true,
         desc: "xv searcher",
         type: "search",
     },
