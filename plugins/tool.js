@@ -59,15 +59,16 @@ let buff = await m.quoted.download();
 > *Release* : ${data.release_date}
 > *YouTube Link* : ${data.youtube}
 > *Spotify Link* : ${data.spotify}\n\n𝐄𝐙𝐑𝐀-𝐗𝐃`
-                   await message.client.sendMessage(message.jid,{ document :{ url: "https://www.mediafire.com/file/n1qjfxjgvt0ovm2/IMG-20240211-WA0086_%25281%2529.pdf/file" }, fileName: "𝗙𝗜𝗡𝗗 𝗥𝗘𝗦𝗨𝗟𝗧" , mimetype: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileLength: "999999950", contextInfo: { externalAdReply: {
-title: "𝐄𝐙𝐑𝐀-𝐗𝐃",
-body: "",
-sourceUrl: "",
-mediaUrl: "",
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption: (zeta)}, {quoted: message })
+                   await message.client.sendMessage(message.jid,{ document :{ url: "https://www.mediafire.com/file/n1qjfxjgvt0ovm2/IMG-20240211-WA0086_%25281%2529.pdf/file" }, fileName: "𝗙𝗜𝗡𝗗 𝗥𝗘𝗦𝗨𝗟𝗧" , mimetype: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileLength: "999999950", contextInfo: {
+      
+      mentionedJid: [m.sender],
+forwardingScore: 999,
+      isForwarded: true,
+            forwardedNewsletterMessageInfo: {
+                newsletterJid: '120363239634100086@newsletter',
+                newsletterName: "𝗭𝗲𝘁𝗮-𝗫𝗗 ⛮",
+                serverMessageId: -1
+            }}, caption: (zeta)}, {quoted: message })
     }
     );
 
