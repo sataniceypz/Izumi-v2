@@ -147,7 +147,7 @@ command(
     return await message.client.sendMessage(message.jid, {
         audio: aud,
         mimetype: 'audio/mpeg',
-    });
+    }, { quoted: message });
     } else if(message.reply_message.sticker){
     let buff = await m.quoted.download();
     let [packname, author] = match.split(";");
