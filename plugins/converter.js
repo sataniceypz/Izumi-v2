@@ -7,7 +7,7 @@ you may not use this file except in compliance with the License.
 Louis-X0 - Zeta-X0
 */
 
-command(
+/*command(
     {
         pattern: "attp",
         fromMe: isPrivate,
@@ -25,6 +25,7 @@ let buff = await getBuffer(`https://vihangayt.me/maker/text2gif?q=${match}`);
       "sticker"
     );
 });
+*/
 
 
 /* Copyright (C) 2024 Louis-X0.
@@ -50,15 +51,7 @@ command(
         text += `${(num += 1)} ${txt}\n`;
       });
         text += "\n\n𝐄𝐙𝐑𝐀-𝐗𝐃"
-      return await message.client.sendMessage(message.jid,{ document :{ url: "https://www.mediafire.com/file/n1qjfxjgvt0ovm2/IMG-20240211-WA0086_%25281%2529.pdf/file" }, fileName: "𝗘𝗭𝗥𝗔 𝗙𝗔𝗡𝗖𝗬 𝗠𝗘𝗡𝗨" , mimetype: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileLength: "999999950", contextInfo: { externalAdReply: {
-title: "𝐄𝐙𝐑𝐀-𝐗𝐃",
-body: "",
-sourceUrl: "",
-mediaUrl: "",
-mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption: (text)}, {quoted: message });
+      return await message.client.sendMessage(message.jid,{ document :{ url: "https://www.mediafire.com/file/n1qjfxjgvt0ovm2/IMG-20240211-WA0086_%25281%2529.pdf/file" }, fileName: "𝗘𝗭𝗥𝗔 𝗙𝗔𝗡𝗖𝗬 𝗠𝗘𝗡𝗨" , mimetype: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileLength: "999999950", caption: (text)}, {quoted: message });
     } else {
       message.reply(styletext(message.reply_message.text, parseInt(match)));
     }
@@ -144,7 +137,7 @@ command(
     type: "converter",
   },
   async (message, match, m) => {
-    if (!message.reply_message || (!message.reply_message.video && !message.reply_message.audio && !message.reply_message.sticker)) return await message.reply('*_Reply at audio/voice/video!_*')  
+    if (!message.reply_message || (!message.reply_message.video && !message.reply_message.audio && !message.reply_message.sticker)) return await message.reply('*_Reply at sticker/audio/voice/video!_*')  
     if(message.reply_message.audio || message.reply_message.video) {
     let buff = await toAudio(await m.quoted.download());
     let logo = match && match.split(/[,;]/)[2] ? match.split(/[,;]/)[2] : config.AUDIO_DATA.split(/[;]/)[2];
