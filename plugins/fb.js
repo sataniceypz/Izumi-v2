@@ -1,4 +1,4 @@
-const { command, isPrivate, getJson } = require("../lib/");
+/*const { command, isPrivate, getJson } = require("../lib/");
 
 command(
     {
@@ -64,3 +64,4 @@ return error
 }
 }
 });
+*/
