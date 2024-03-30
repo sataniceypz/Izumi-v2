@@ -8,7 +8,7 @@ const {
 const gis = require("g-i-s");
 const googleTTS = require('google-tts-api');
 const X = require("../config");
-const { CAPTION } = require("../config");
+const { CAPTION, AUDIO_DATA } = require("../config");
 
 command(
   {
@@ -142,9 +142,9 @@ command(
   async (message, match, m) => {
     if (!message.reply_message || (!message.reply_message.video && !message.reply_message.audio)) return await message.reply('*_Reply at audio/voice/video!_*')  
     let buff = await toAudio(await m.quoted.download(), "mp3");
-    let logo = config.AUDIO_DATA.split(/[;]/)[2];
+    let logo = X.AUDIO_DATA.split(/[;]/)[2];
     let imgbuff = await getBuffer(logo.trim());
-    let NaMe = config.AUDIO_DATA.split(/[|,;]/)[0] ? config.AUDIO_DATA.split(/[|,;]/)[0] : config.AUDIO_DATA;
+    let NaMe = X.AUDIO_DATA.split(/[|,;]/)[0] ? X.AUDIO_DATA.split(/[|,;]/)[0] : X.AUDIO_DATA;
     const aud = await AddMp3Meta(buff, imgbuff, {title: NaMe, artist: "zeta"});
     return await message.client.sendMessage(message.jid, {
         audio: aud,
