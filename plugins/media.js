@@ -149,7 +149,7 @@ command(
     return await message.client.sendMessage(message.jid, {
         audio: aud,
         mimetype: 'audio/mpeg',
-    });
+    }, { quoted: message });
   }
 );
 
