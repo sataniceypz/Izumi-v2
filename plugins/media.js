@@ -1,8 +1,9 @@
 const {
-  Function,
   command,
   webp2mp4,
-  isPrivate
+  isPrivate,
+  AddMp3Meta,
+  getBuffer
 } = require("../lib/");
 const gis = require("g-i-s");
 const googleTTS = require('google-tts-api');
@@ -130,7 +131,6 @@ command(
   }
 );
 
-
 const { toAudio } = require("../lib/media");
 command(
   {
@@ -141,9 +141,15 @@ command(
   },
   async (message, match, m) => {
     if (!message.reply_message || (!message.reply_message.video && !message.reply_message.audio)) return await message.reply('*_Reply at audio/voice/video!_*')  
-    let buff = await m.quoted.download();
-    buff = await toAudio(buff, "mp3");
-     await message.sendMessage(buff,{mimetype: 'audio/mpeg', quoted: message }, "audio");
+    let buff = await toAudio(await m.quoted.download(), "mp3");
+    let logo = config.AUDIO_DATA.split(/[;]/)[2];
+    let imgbuff = await getBuffer(logo.trim());
+    let NaMe = config.AUDIO_DATA.split(/[|,;]/)[0] ? config.AUDIO_DATA.split(/[|,;]/)[0] : config.AUDIO_DATA;
+    const aud = await AddMp3Meta(buff, imgbuff, {title: NaMe, artist: "zeta"});
+    return await message.client.sendMessage(message.jid, {
+        audio: aud,
+        mimetype: 'audio/mpeg',
+    });
   }
 );
 
