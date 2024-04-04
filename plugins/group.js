@@ -4,16 +4,7 @@ const {
   deleteFilter,
   toggleFilter,
 } = require("../lib/database/filters");
-const { command, isPrivate, tiny } = require("../lib");
-const {
-  setMessage,
-  getMessage,
-  delMessage,
-  getStatus,
-  toggleStatus,
-} = require("../lib/database/greetings");
-const config = require("../config");
-const { isAdmin, parsedJid, isUrl } = require("../lib");
+const { command, isPrivate, tiny, isAdmin, parsedJid, isUrl } = require("../lib");
 const { cron, saveSchedule } = require("../lib/scheduler");
 const Jimp = require("jimp");
 const Lang = {
