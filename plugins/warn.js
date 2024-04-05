@@ -7,6 +7,7 @@ command(
     pattern: "warn",
     fromMe: true,
     desc: "Warn a user",
+    type: "group"
   },
   async (message, match) => {
     const userId = message.mention[0] || message.reply_message.jid;
@@ -45,6 +46,7 @@ command(
     pattern: "resetwarn",
     fromMe: true,
     desc: "Reset warnings for a user",
+    type: "group"
   },
   async (message) => {
     const userId = message.mention[0] || message.reply_message.jid;
