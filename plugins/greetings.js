@@ -10,7 +10,7 @@ command(
     type: "group",
   },
   async (message, match) => {
-    if (!message.isGroup) return;
+    if (!message.isGroup) return await message.reply("*_This command only works in group chats_*");
     let { prefix } = message;
     let status = await getStatus(message.jid, "welcome");
     let stat = status ? "on" : "off";
@@ -61,7 +61,7 @@ command(
     type: "group",
   },
   async (message, match) => {
-    if (!message.isGroup) return;
+    if (!message.isGroup) return await message.reply("*_This command only works in group chats_*");
     let status = await getStatus(message.jid, "goodbye");
     let stat = status ? "on" : "off";
     let replyMsg = `Goodbye manager\n\nGroup: ${
