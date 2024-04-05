@@ -12,6 +12,11 @@
       "description": "true/false",
       "required": false
     },
+    "WARN_COUNT": {
+      "description": "warn a user",
+      "required": "false",
+      "value": "3"
+    },
     "ANTILINK_ACTION": {
       "description": "kick",
       "required": false
