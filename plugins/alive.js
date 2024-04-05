@@ -1,4 +1,4 @@
->const axios = require('axios');
+const axios = require('axios');
 const { command, isPrivate } = require("../lib");
 
 let labsVoiceID = {
@@ -154,15 +154,19 @@ for(key in labsVoiceID) {
 
 command(
   {
-    pattern: "alive",
+    pattern: "aitts",
     fromMe: isPrivate,
     desc: "converts video/audio/voice to voice",
     type: "converter",
   },
   async (message, match, client, m) => {
+	  try{
 const [v, k] = match.split(/,;|/);
 	if (!k) return await message.reply(`*_need voice id and text_*\n_example_\n\n_*aitts* hey vroh its a test,adam_\n_*aitts list*_`)
 let stream = await elevenlabs(match);
 return await message.client.sendMessage(message.jid, {audio: {stream}, mimetype: 'audio/mpeg'
 	}, 'audio')
+	  }catch(error){
+		  return message.reply(error)
+	  }
 });
