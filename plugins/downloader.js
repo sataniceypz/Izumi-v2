@@ -1,8 +1,10 @@
-const { command , isPrivate , getBuffer, getJson } = require("../lib");
+const { command , isPrivate , getBuffer, getJson, isUrl } = require("../lib");
 const fetch = require("node-fetch");
+const ytdl = require("ytdl-core")
 const { CAPTION } = require("../config");
 const axios = require("axios");
 const X = require("../config");
+
 
 command(
     {
@@ -47,13 +49,54 @@ command(
         type: "downloader",
     },
     async (message, match, client) => {
-        if (!match) return await message.reply("*_Need YouTube Url_*");
-        let dat = `https://api.lokiser.xyz/youtube/yta?url=${match}`
-await message.client.sendMessage(message.jid, { audio :{ url: dat },  mimetype:"audio/mpeg" }, {quoted: message })
+        if (!isUrl(match)) return await message.reply("*_Need YouTube Url_*");
+let Ytd = await ytmp3(match);
+await message.client.sendMessage(message.jid, {audio: Ytd.buffer, mimetype: "audio/mpeg"}, { quoted: message }, "audio");
+});
+
+async function ytmp3(url) {
+    try {
+        const {
+            videoDetails
+        } = await ytdl.getInfo(url, {
+            lang: "id"
+        });
+
+        const stream = ytdl(url, {
+            filter: "audioonly",
+            quality: "highestaudio"
+        });
+        const chunks = [];
+
+        stream.on("data", (chunk) => {
+            chunks.push(chunk);
+        });
+
+        await new Promise((resolve, reject) => {
+            stream.on("end", resolve);
+            stream.on("error", reject);
+        });
+
+        const buffer = Buffer.concat(chunks);
+
+        return {
+            meta: {
+                title: videoDetails.title,
+                channel: videoDetails.author.name,
+                seconds: videoDetails.lengthSeconds,
+                description: videoDetails.description,
+                image: videoDetails.thumbnails.slice(-1)[0].url,
+            },
+            buffer: buffer,
+            size: buffer.length,
+        };
+    } catch (error) {
+        throw error;
     }
-    );
+};
 
 // ZETA BRO //
+
 command(
     {
         pattern: "ytv",
@@ -62,10 +105,71 @@ command(
         type: "downloader",
     },
     async (message, match) => {
-        if (!match) return await message.reply("*_Need YouTube Url_*");
-let dat = `https://api.lokiser.xyz/youtube/ytv?url=${match}`
-await message.sendFromUrl(dat, {caption :"𝐳𝐞𝐭𝐚𝐚𝐚𝐡𝐡 ࿊" }, {quoted: message })
+        if (!isUrl(match)) return await message.reply("*_Need YouTube Url_*");
+let Ytd = await ytmp4(match, "134");
+await message.sendFromUrl(Ytd.videoUrl, {caption: X.CAPTION}, {quoted: message })
 });
+
+function formatDuration(seconds) {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+
+    const formattedDuration = [];
+
+    if (hours > 0) {
+        formattedDuration.push(`${hours} hour`);
+    }
+
+    if (minutes > 0) {
+        formattedDuration.push(`${minutes} minute`);
+    }
+
+    if (remainingSeconds > 0) {
+        formattedDuration.push(`${remainingSeconds} second`);
+    }
+
+    return formattedDuration.join(' ');
+}
+
+function formatBytes(bytes) {
+    if (bytes === 0) {
+        return '0 B';
+    }
+    const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(1024));
+    return `${(bytes / 1024 ** i).toFixed(2)} ${sizes[i]}`;
+}
+
+async function ytmp4(query, quality = 134) {
+    try {
+        const videoInfo = await ytdl.getInfo(query, {
+            lang: 'id'
+        });
+        const format = ytdl.chooseFormat(videoInfo.formats, {
+            format: quality,
+            filter: 'videoandaudio'
+        })
+        let response = await fetch(format.url, {
+            method: 'HEAD'
+        });
+        let contentLength = response.headers.get('content-length');
+        let fileSizeInBytes = parseInt(contentLength);
+        return {
+            title: videoInfo.videoDetails.title,
+            thumb: videoInfo.videoDetails.thumbnails.slice(-1)[0],
+            date: videoInfo.videoDetails.publishDate,
+            duration: formatDuration(videoInfo.videoDetails.lengthSeconds),
+            channel: videoInfo.videoDetails.ownerChannelName,
+            quality: format.qualityLabel,
+            contentLength: formatBytes(fileSizeInBytes),
+            description: videoInfo.videoDetails.description,
+            videoUrl: format.url
+        }
+    } catch (error) {
+        throw error
+    }
+}
 
 // Zeta-XD 
 
