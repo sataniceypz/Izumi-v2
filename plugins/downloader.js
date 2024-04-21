@@ -246,17 +246,15 @@ command(
     {
         pattern: "pinterest",
         fromMe: isPrivate,
-        desc: "pinterest Downloader",
+        desc: "Pinterest Downloader",
         type: "downloader",
     },
     async (message, match) => {
-        if (!match) return await message.sendMessage("*_Need Pinterest Url_*");
+        if (!isUrl(match)) return await message.sendMessage("*_Need Pinterest Url_*");
 var {result} = await getJson(`https://api.lokiser.xyz/api/pinterestdl?link=${match}`)
 await message.sendFromUrl(result.LokiXer.url,{ caption: (X.CAPTION) }, {quoted: message})
     }
     );
-
-const { command, isPrivate, isUrl } = require("../lib")
 
 command(
     {
