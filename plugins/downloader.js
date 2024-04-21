@@ -107,7 +107,7 @@ command(
     async (message, match) => {
         if (!isUrl(match)) return await message.reply("*_Need YouTube Url_*");
 let Ytd = await ytmp4(match, "134");
-await message.sendFromUrl(Ytd.videoUrl, {caption: X.CAPTION}, {quoted: message })
+await message.sendFromUrl(Ytd.videoUrl, { caption: (X.CAPTION) }, {quoted: message })
 });
 
 function formatDuration(seconds) {
