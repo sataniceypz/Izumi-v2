@@ -2,6 +2,8 @@ const { command, isPrivate } = require("../lib/");
 const fetch = require("node-fetch");
 const yts = require("yt-search");
 const ytdl = require("ytdl-core")
+const { CAPTION } = require("../config");
+const X = require("../config");
 
 command(
     {
@@ -50,7 +52,7 @@ let final = message.reply_message.text.split("║ ")[4]
 final = final.replace("𝐔𝐫𝐥 :", "")
 let title = final;
 let Ytd = await ytmp3(title);
-await message.client.sendMessage(message.jid, {audio: Ytd.buffer, mimetype: "audio/mpeg"}, "audio");
+await message.client.sendMessage(message.jid, {audio: Ytd.buffer, mimetype: "audio/mpeg"}, { quoted: message }, "audio");
 
 async function ytmp3(url) {
     try {
@@ -102,7 +104,7 @@ let final = message.reply_message.text.split("║ ")[4]
 final = final.replace("𝐔𝐫𝐥 :", "")
 let title = final;
 let Ytd = await ytmp4(title, "134");
-await message.sendFromUrl(Ytd.videoUrl, {caption :"𝐳𝐞𝐭𝐚𝐚𝐚𝐡𝐡 ࿊" }, {quoted: message })
+await message.client.sendMessage(message.jid, {video: {url: Ytd.videoUrl}, mimetype: "video/mp4", caption: (X.CAPTION)}, { quoted: message }, "video");
 
 function formatDuration(seconds) {
     const hours = Math.floor(seconds / 3600);
