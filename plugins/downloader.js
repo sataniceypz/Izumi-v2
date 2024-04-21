@@ -255,3 +255,24 @@ var {result} = await getJson(`https://api.lokiser.xyz/api/pinterestdl?link=${mat
 await message.sendFromUrl(result.LokiXer.url,{ caption: (X.CAPTION) }, {quoted: message})
     }
     );
+
+const { command, isPrivate, isUrl } = require("../lib")
+
+command(
+    {
+        pattern: "gitdl",
+        fromMe: isPrivate,
+        desc: "Repository Downloader",
+        type: "downloader",
+    },
+    async (message, match, client) => {
+if (!isUrl(match)) return await message.reply("*_Need A Repo Url_*")
+let user = match.split("/")[3];
+let repo = match.split("/")[4];
+let url = `https://api.github.com/repos/${user}/${repo}/zipball`;
+await message.reply("*_Downloading_*")
+
+await message.client.sendMessage(message.jid,{ document :{ url: url }, fileName: repo , mimetype: "application/zip"}, {quoted: message });
+})
+
+
