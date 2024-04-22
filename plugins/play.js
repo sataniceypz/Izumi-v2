@@ -45,7 +45,7 @@ command({
 
 },
 async(message, match, client, m)=> {
-if(match.toLowerCase() == "1" && message.reply_message.text.includes("𝐓𝐢𝐭𝐥𝐞 :") === true){
+if(match == "1" && message.reply_message.text.includes("𝐓𝐢𝐭𝐥𝐞 :") === true){
 
 try{
 let final = message.reply_message.text.split("║ ")[4] 
@@ -97,7 +97,7 @@ async function ytmp3(url) {
 }catch(error){
 return error
 }
-} else if(match.toLowerCase() == "2" && message.reply_message.text.includes("𝐓𝐢𝐭𝐥𝐞 :") === true){
+} else if(match == "2" && message.reply_message.text.includes("𝐓𝐢𝐭𝐥𝐞 :") === true){
 
 try{
 let final = message.reply_message.text.split("║ ")[4] 
