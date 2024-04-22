@@ -25,7 +25,7 @@ command(
     type: "heroku",
   },
   async (message) => {
-    await message.sendMessage(`*_Restarting!_*`);
+    await message.sendMessage(`*_Restarting!, it take time_*`);
     await heroku.delete(baseURI + "/dynos").catch(async (error) => {
       await message.sendMessage(`HEROKU : ${error.body.message}`);
     });
@@ -207,7 +207,7 @@ command(
         }
         await git.push("heroku", Config.BRANCH);
 
-        await message.sendMessage("*_Successfully Updated_*");
+        await message.sendMessage("*_Successfully Updated, Restarting-it take time_*");
       }
     }
     await git.fetch();
