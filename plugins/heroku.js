@@ -72,7 +72,7 @@ X-Asena - X-Electra
 command(
   {
     pattern: "dyno",
-    fromMe: isPrivate,
+    fromMe: true,
     desc: "Show Quota info",
     type: "heroku",
   },
@@ -106,35 +106,6 @@ Remaning    : ${secondsToDHMS(remaining)}`;
   }
 );
 
-/* Copyright (C) 2022 X-Electra.
-Licensed under the  GPL-3.0 License;
-you may not use this file except in compliance with the License.
-X-Asena - X-Electra
-*/
-
-
-
-/* Copyright (C) 2022 X-Electra.
-Licensed under the  GPL-3.0 License;
-you may not use this file except in compliance with the License.
-X-Asena - X-Electra
-*/
-
-
-
-/* Copyright (C) 2022 X-Electra.
-Licensed under the  GPL-3.0 License;
-you may not use this file except in compliance with the License.
-X-Asena - X-Electra
-*/
-
-
-
-/* Copyright (C) 2022 X-Electra.
-Licensed under the  GPL-3.0 License;
-you may not use this file except in compliance with the License.
-X-Asena - X-Electra
-*/
 
 command(
   {
@@ -245,7 +216,7 @@ command(
 
 command(
   { pattern: "getsudo ?(.*)", 
-    fromMe: isPrivate, 
+    fromMe: true, 
     desc: "shows sudo numbers", 
     type: "heroku" 
   },
@@ -260,7 +231,7 @@ command(
 );
 
 command(
-  { pattern: "setsudo ?(.*)", fromMe: isPrivate, desc: "set new sudo", type: "heroku" },
+  { pattern: "setsudo ?(.*)", fromMe: true, desc: "set new sudo", type: "heroku" },
   async (message, mm) => {
     var newSudo = (message.reply_message ? message.reply_message.jid : "" || mm).split(
       "@"
@@ -282,7 +253,7 @@ command(
 command(
   {
     pattern: "delsudo ?(.*)",
-    fromMe: isPrivate,
+    fromMe: true,
     desc: "delete sudo number",
     type: "heroku",
   },
