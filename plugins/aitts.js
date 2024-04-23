@@ -162,7 +162,7 @@ command(
   async (message, match, client, m) => {
 	  try{
 const [v, k] = match.split(/,;|/);
-	if (!k) return await message.reply(`*_need voice id and text_*\n_example_\n\n_*aitts* hey vroh its a test,adam_\n_*aitts list*_`)
+	if (!k) return await message.reply(`*_need voice id and text_*\n_example_\n\n_*aitts* hey vroh its a test,adam_\n`)
 let stream = await elevenlabs(match);
 return await message.client.sendMessage(message.jid, {audio: {stream}, mimetype: 'audio/mpeg'
 	}, 'audio')
