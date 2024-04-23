@@ -27,12 +27,12 @@ Xasena
 
 2. Now Deploy
     <br>
-<a href='https://heroku.com/deploy?template=https://github.com/Kingbadan321/Zeta-XD' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/-DEPLOY-black?style=for-the-badge&logo=heroku&logoColor=white'/></a>
+<a href='https://heroku.com/deploy?template=https://github.com/Kingbadan321/Zeta-XD' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/-DEPLOY-black?style=for-the-badge&logo=heroku&logoColor=violet'/></a>
 
 
 ***
 * Join Group For Help
-<a href="https://chat.whatsapp.com/BxNvOg51FYk2Q2JYmfogCm"><img alt="WhatsApp" src="https://img.shields.io/badge/-Whatsapp%20Group-black?style=for-the-badge&logo=whatsapp&logoColor=white"/></a>
+<a href="https://chat.whatsapp.com/BxNvOg51FYk2Q2JYmfogCm"><img alt="WhatsApp" src="https://img.shields.io/badge/-Whatsapp%20Group-black?style=for-the-badge&logo=whatsapp&logoColor=green"/></a>
 
 
 
