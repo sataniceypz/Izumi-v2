@@ -60,6 +60,7 @@ Xasena
 * [`LOUIS-XD`](https://github.com/Louis-XD)
 * [`LOKI-XER`](https://github.com/Loki-xer)
 * [`I-NRL`](https://github.com/i-nrl)
+* [`NEERAJ-XO`](https://github.com/Neeraj-x0)
 
 
  </details>
