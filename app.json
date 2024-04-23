@@ -1,26 +1,13 @@
 {
   "name": "Zeta-XD",
   "description": "Zeta-XD Multi Device whatsapp bot",
-  "logo": "https://i.imgur.com/pae05LQ.jpeg",
+  "logo": "i.imgur.com/QxRga5I.jpeg",
   "keywords": ["whatsapp"],
-  "repository": "https://github.com/Zeta-XD/ezraa",
-  "website": "https://github.com/Zeta-XD/ezraa",
-  "success_url": "https://github.com/Zeta-XD/ezraa",
+  "repository": "https://github.com/Kingbadan321/Zeta-XD",
+  "website": "https://github.com/Kingbadan321/Zeta-XD",
+  "success_url": "https://github.com/Kingbadan321/Zeta-XD",
   "stack": "container",
   "env": {
-    "ANTI_LINK": {
-      "description": "true/false",
-      "required": false
-    },
-    "WARN_COUNT": {
-      "description": "warn a user",
-      "required": "false",
-      "value": "3"
-    },
-    "ANTILINK_ACTION": {
-      "description": "kick",
-      "required": false
-    },
     "SESSION_ID": {
       "description": "Zeta-XD session id",
       "required": true
