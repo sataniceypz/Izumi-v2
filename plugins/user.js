@@ -271,8 +271,7 @@ Description: ${i.desc}\`\`\``);
       });
 menu += `\n╚┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄⛒`;
       let penu = tiny(menu)
-      let epi = ["https://i.imgur.com/lyUsPEG.mp4","https://i.imgur.com/BDZvhdr.mp4","https://i.imgur.com/b7Fs3Dj.mp4","https://i.imgur.com/TvraAS1.mp4","https://i.imgur.com/u2JxQWJ.mp4","https://i.imgur.com/kklqQN7.mp4","https://i.imgur.com/RiWfxeB.mp4","https://i.imgur.com/8Zr3Tus.mp4","https://i.imgur.com/RsvHoat.mp4","https://i.imgur.com/yxmaZUU.mp4"];
-      let vd = epi[Math.floor(Math.random()*epi.length)];
+      let vd = BOT_INFO.split(";")[2];
       return await message.sendFromUrl(vd, {fileLength: "500000000", gifPlayback: true, contextInfo: {
       mentionedJid: [m.sender],
       forwardingScore: 999,
