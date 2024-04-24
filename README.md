@@ -48,7 +48,7 @@ Xasena
 <br>
 
 
-* [`External PLUGINS`](###)
+* [`External PLUGINS`](https://github.com/Kingbadan321/Zeta-XD-Plugins/blob/main/README.md)
 
 ### Thanks To
 
