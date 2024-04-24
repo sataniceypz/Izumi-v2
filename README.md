@@ -7,7 +7,7 @@ Xasena
 
 ***
 
-### SETUP
+### Setup
 
 1. Fork This Repository
    <br>
