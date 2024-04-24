@@ -1,4 +1,4 @@
-<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+<a><img src='https://i.imgur.com/6Ty8MPT.jpeg'/></a>
 ## Zeta-XD Whatsapp Bot
 Zeta-XD - Simple whatsapp Multi Device bot based on 
 Xasena 
@@ -14,7 +14,7 @@ Xasena
 <a href='https://github.com/Kingbadan321/Zeta-XD/fork' target="_blank"><img alt='FORK' src='https://img.shields.io/badge/fork-100000?style=for-the-badge&logo=github&logoColor=white&labelColor=black&color=black'/></a>
 2. Get Session I'D.
     <br>
-<a href='https://www.badan-ser.xyz' target="_blank"><img alt='SCAN QR' src='https://img.shields.io/badge/get_session-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
+<a href='https://www.badan-ser.xyz' target="_blank"><img alt='SCAN QR' src='https://img.shields.io/badge/get_session-100000?style=for-the-badge&logo=codeium&logoColor=white&labelColor=black&color=black'/></a>
 
 ***
 ### Deploy
