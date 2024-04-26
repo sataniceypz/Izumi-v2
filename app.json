@@ -1,0 +1,76 @@
+{
+  "name": "Izumi-xd",
+  "description": "IZUMI-XD Multi Device whatsapp bot",
+  "logo": "https://i.imgur.com/Uc0uIkO.jpeg",
+  "keywords": ["whatsapp"],
+  "repository": "https://github.com/sataniceypz/Izumi-v2",
+  "website": "https://github.com/sataniceypz/Izumi-v2",
+  "success_url": "https://github.com/sataniceypz/Izumi-v2",
+  "stack": "container",
+  "env": {
+    "SESSION_ID": {
+      "description": "IZUMI-XD session id",
+      "required": true
+    },
+    "LOGS": {
+      "description": "need to show message logs ?",
+      "required": false
+     },
+     "AUDIO_DATA": {
+      "description": "audio data , title;artist;image url",
+      "required": "false",
+      "value": "𝐄𝐘𝐏𝐙 ; 𝗜𝗭𝗨𝗠𝗜-𝗫𝗗 ; https://i.imgur.com/Uc0uIkO.jpeg"
+     },
+     "CAPTION": {
+      "description": "enter your media caption",
+      "required": "false",
+      "value": "𝗜𝗭𝗨𝗠𝗜-𝗫𝗗"
+    },
+       "STICKER_DATA": {
+      "description": "Sticker pack name, eg : 𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;𝐄𝐘𝐏𝐙",
+      "required": "false",
+      "value": "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;𝐄𝐘𝐏𝐙"
+    },
+       "BOT_INFO": {
+      "description": "Bot info : botname;ownername;imageurl - image or video",
+      "required": "false",
+      "value": "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;𝐄𝐘𝐏𝐙;https://i.imgur.com/Uc0uIkO.jpeg"
+    },
+     "ALWAYS_ONLINE": {
+      "description": "Bot online online : true",
+      "required": "false",
+      "value": "false"
+    },
+    "SUDO": {
+      "description": "sudo numbers with country code seperate with , for multiple numbers",
+      "required": false
+    },
+    "WORK_TYPE": {
+      "description": "bot work mode",
+      "required": "true",
+      "value": "private"
+     },
+    "PREFIX": {
+      "description": "Example 1: ^[.,!#]  example 2 ^ 👈🏻 Handlers disable",
+      "required": true,
+       "value":"^[.,]"
+     },
+    "HEROKU_APP_NAME": {
+      "description": "Heroku app name, same as above entered",
+      "required": true
+    },
+    "HEROKU_API_KEY": {
+      "description": "Heroku account api key, https://dashboard.heroku.com/account",
+      "required": true
+     }
+ },
+ "addons": [{
+      "plan": "heroku-postgresql"
+    }],
+    "buildpacks": [{
+      "url": "heroku-community/apt"
+      },
+      {
+      "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
+      }]
+  }
