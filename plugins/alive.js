@@ -5,7 +5,7 @@ const config = require("../config");
 
 let title = " 𝗛𝗲𝘆 𝗜𝘇𝘂𝗺𝗶 𝗶𝘀 𝗔𝗹𝗶𝘃𝗲🧚‍♂️"
 let body = "𝗜𝗭𝗨𝗠𝗜-𝗫𝗗"
-let sourceUrl = ""
+let sourceUrl = "github.com/sataniceypz/Izumi-v2"
 let mediaUrl = ""
 let mediaType = 1
 let showAdAttribution = true
