@@ -14,7 +14,7 @@ let thumbnailUrl = "https://i.imgur.com/J2m8RRH.jpeg"
 let seconds = "0xbebc74b"
 let ptt = true
 let fileLength = "100000000"
-let audios = ["https://i.imgur.com/bVO7EQz.mp4","https://i.imgur.com/8vhaz82.mp4","https://i.imgur.com/sDwfg29.mp4","https://i.imgur.com/pbtSy0M.mp4","https://i.imgur.com/dPjoh3s.mp4","https://i.imgur.com/6HXfyVr.mp4"]
+let audios = ["https://i.imgur.com/bVO7EQz.mp4","https://i.imgur.com/8vhaz82.mp4","https://i.imgur.com/sDwfg29.mp4","https://i.imgur.com/dPjoh3s.mp4","https://i.imgur.com/6HXfyVr.mp4"]
 let gifPlayback = true
 
 
