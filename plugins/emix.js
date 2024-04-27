@@ -15,7 +15,7 @@ try {
         await message.sendMessage(
       buff,
       { packname: config.STICKER_DATA.split(";")[0], author: config.STICKER_DATA.split(";")[1], contextInfo: { externalAdReply: {
-title: "𝐄𝐙𝐑𝐀-𝐗𝐃",
+title: "𝐈𝐙𝐔𝐌𝐈-𝐗𝐃",
 body: "𝙚𝙢𝙤𝙟𝙞 𝙢𝙞𝙭𝙚𝙙",
 sourceUrl: "",
 mediaUrl: "",
