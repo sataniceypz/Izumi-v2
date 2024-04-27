@@ -24,23 +24,18 @@ you may not use this file except in compliance with the License.
 X-Asena - X-Electra
 */
 
-command(
-    {
-        pattern: "ping",
-        fromMe: isPrivate,
-        desc: "To check ping",
-        type: "user",
-    },
-    async (message, match, client) => {
-        const start = new Date().getTime();
-      let { key } = await message.sendMessage(`*Ping 🧚‍♂️*`);
-        const end = new Date().getTime();
-var speed = end - start;
- 
-await new Promise(t => setTimeout(t,0))
-         await message.client.sendMessage(message.jid,{text:`*Pong* 🧚‍♂️
-${speed} *𝚖𝚜*` , edit: key});
-})
+command({
+    pattern: "ping",
+    fromMe: true,
+    desc: "To check ping",
+    type: "user",
+}, async (message, match, client) => {
+    const start = new Date().getTime();
+    await message.sendMessage("```Pɪɴɢ!```");
+    const end = new Date().getTime();
+    const ms = end - start;
+    return await message.client.sendMessage(message.jid, { location: { degreesLatitude: 24.121231, degreesLongitude: 55.1121221, name: `Pᴏɴɢ ${ms}ᴍꜱ`, address: "Iᴢᴜᴍɪ Xᴅ"} });
+});
 
 /* Copyright (C) 2022 X-Electra.
 Licensed under the  GPL-3.0 License;
