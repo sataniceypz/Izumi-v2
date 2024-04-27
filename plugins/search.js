@@ -82,6 +82,6 @@ command(
 var {result} = await getJson(`https://levanter.onrender.com/ig?q=${match}`)
 const { name, username, avatar, posts, following, followers, description } =
 			result
-await message.client.sendMessage(message.jid, { image:{url: avatar} ,  mimetype:"image/jpeg", caption: `\n*INSTAGRAM DETAILS*\n\n> *USERNAME* : ${username}\n> *NAME* : ${name}\n> *BIO* : ${description}\n> *POSTS* : ${posts}\n> *FOLLOWERS* : ${followers}\n> *FOLLOWING* : ${following}\n\n𝐄𝐙𝐑𝐀-𝐗𝐃`}, {quoted: message });
+await message.client.sendMessage(message.jid, { image:{url: avatar} ,  mimetype:"image/jpeg", caption: `\n*INSTAGRAM DETAILS*\n\n> *USERNAME* : ${username}\n> *NAME* : ${name}\n> *BIO* : ${description}\n> *POSTS* : ${posts}\n> *FOLLOWERS* : ${followers}\n> *FOLLOWING* : ${following}\n\n𝐈𝐙𝐔𝐌𝐈-𝐗𝐃`}, {quoted: message });
     }
     );
