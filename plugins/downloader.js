@@ -126,7 +126,7 @@ command(
   async (message, match) => {
     match = match || message.reply_message.text
    if (!match)return message.reply(`*_Need instagram Link_*`)
-      var { data } = await getJson(`https://api.vihangayt.asia/downloader/ig?url=${match}`);
+      var { data } = await getJson(`https://api-aswin-sparky.koyeb.app/api/downloader/igdl}`);
         
         for (let i = 0; i < data.data.length; i++) {
             await message.sendFromUrl(data.data[i].url, { caption: (X.CAPTION)})
