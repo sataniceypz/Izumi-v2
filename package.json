@@ -18,13 +18,13 @@
     "Zeta",
     "sparkyapi"
   ],
-  "author": "Zeta-XD",
-  "developer": "Zeta",
+  "author": "Izumi-XD",
+  "developer": "Eypz",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/Zeta-XD/ezraa/issues"
+    "url": "https://github.com/sataniceypz/Izumi-v2/issues"
   },
-  "homepage": "https://github.com/Zeta-XD/ezraa#readme",
+  "homepage": "https://github.com/sataniceypz/Izumi-v2#readme",
   "dependencies": {
     "@whiskeysockets/baileys": "^6.6.0",
     "@adiwajshing/keyed-db": "^0.2.4",
