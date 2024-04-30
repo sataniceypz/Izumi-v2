@@ -148,7 +148,7 @@ command(
       var { data } = await getJson(`https://api.vihangayt.asia/downloader/ig?url=${match}`);
         
         for (let i = 0; i < data.data.length; i++) {
-            await message.sendFromUrl(data.data[i].url, { caption: (𝗜𝗭𝗨𝗠𝗜 𝗫𝗗)})
+            await message.sendFromUrl(data.data[i].url, { caption: (X.CAPTION)})
             }
 });
 
@@ -175,6 +175,6 @@ mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/J2m8RRH.jpeg" }}, caption: (𝗜𝗭𝗨𝗠𝗜 𝗫𝗗)}, {quoted: message})
+thumbnailUrl: "https://i.imgur.com/J2m8RRH.jpeg" }}, caption: (X.CAPTION)}, {quoted: message})
     }
     );
