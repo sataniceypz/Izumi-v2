@@ -19,7 +19,7 @@
      "AUDIO_DATA": {
       "description": "audio data , title;artist;image url",
       "required": "false",
-      "value": "𝐄𝐘𝐏𝐙 ; 𝗜𝗭𝗨𝗠𝗜-𝗫𝗗 ; https://i.imgur.com/Uc0uIkO.jpeg"
+      "value": "𝐄𝐘𝐏𝐙 ; 𝗜𝗭𝗨𝗠𝗜-𝗫𝗗 ; https://telegra.ph/file/c092ab6684953575dac78.jpg"
      },
      "CAPTION": {
       "description": "enter your media caption",
@@ -34,7 +34,7 @@
        "BOT_INFO": {
       "description": "Bot info : botname;ownername;imageurl - image or video",
       "required": "false",
-      "value": "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;𝐄𝐘𝐏𝐙;https://i.imgur.com/Uc0uIkO.jpeg"
+      "value": "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;𝐄𝐘𝐏𝐙;https://telegra.ph/file/c092ab6684953575dac78.jpg"
     },
      "ALWAYS_ONLINE": {
       "description": "Bot online online : true",
