@@ -25,7 +25,7 @@ mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://telegra.ph/file/c092ab6684953575dac78.jpg" }} }, {quoted: message })
+thumbnailUrl: "https://i.imgur.com/3YyuOSA.jpeg" }} }, {quoted: message })
     }
     );
 
@@ -50,7 +50,7 @@ mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://telegra.ph/file/c092ab6684953575dac78.jpg" }}, caption: `*${result.title}*`}, {quoted: message })
+thumbnailUrl: "https://i.imgur.com/3YyuOSA.jpeg" }}, caption: `*${result.title}*`}, {quoted: message })
     });
 
 // Zeta-XD 
@@ -73,7 +73,7 @@ mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://telegra.ph/file/c092ab6684953575dac78.jpg" }}, }, {quoted: message })
+thumbnailUrl: "https://i.imgur.com/3YyuOSA.jpeg" }}, }, {quoted: message })
     }
     );
 
@@ -95,7 +95,7 @@ mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://telegra.ph/file/c092ab6684953575dac78.jpg" }}, caption : (X.CAPTION)}, {quoted : message})
+thumbnailUrl: "https://i.imgur.com/3YyuOSA.jpeg" }}, caption : (X.CAPTION)}, {quoted : message})
 });
 
 
@@ -171,6 +171,6 @@ mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://telegra.ph/file/c092ab6684953575dac78.jpg" }}, caption: (X.CAPTION)}, {quoted: message})
+thumbnailUrl: "https://i.imgur.com/3YyuOSA.jpeg" }}, caption: (X.CAPTION)}, {quoted: message})
     }
     );
