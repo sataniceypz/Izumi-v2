@@ -58,7 +58,7 @@ mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/J2m8RRH.jpeg" }}, caption: (text)}, {quoted: message });
+thumbnailUrl: "https://i.imgur.com/whhHEyY.jpeg" }}, caption: (text)}, {quoted: message });
     } else {
       message.reply(styletext(message.reply_message.text, parseInt(match)));
     }
@@ -93,7 +93,7 @@ mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/3YyuOSA.jpeg" }} },
+thumbnailUrl: "https://i.imgur.com/whhHEyY.jpeg" }} },
       "sticker"
     );
   }
@@ -174,7 +174,7 @@ mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/3YyuOSA.jpeg" }}
+thumbnailUrl: "https://i.imgur.com/whhHEyY.jpeg" }}
       },
       "sticker"
     );
