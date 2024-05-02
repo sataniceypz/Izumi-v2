@@ -93,7 +93,7 @@ mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/J2m8RRH.jpeg" }} },
+thumbnailUrl: "https://telegra.ph/file/c092ab6684953575dac78.jpg" }} },
       "sticker"
     );
   }
@@ -174,7 +174,7 @@ mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/J2m8RRH.jpeg" }}
+thumbnailUrl: "https://telegra.ph/file/c092ab6684953575dac78.jpg" }}
       },
       "sticker"
     );
