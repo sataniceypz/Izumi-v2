@@ -34,7 +34,7 @@ command({
     await message.sendMessage("```Pɪɴɢ!```");
     const end = new Date().getTime();
     const ms = end - start;
-    return await message.client.sendMessage(message.jid, { location: { degreesLatitude: 24.121231, degreesLongitude: 55.1121221, name: `Pᴏɴɢ ${ms}ᴍꜱ`, address: "Iᴢᴜᴍɪ Xᴅ"} });
+    return await message.client.sendMessage(message.jid, { location: { degreesLatitude: 24.121231, degreesLongitude: 55.1121221, name: `Pᴏɴɢ ${ms}ᴍꜱ`, address: "Λsᴛʀᴏ xᴅ"} });
 });
 
 /* Copyright (C) 2022 X-Electra.
