@@ -264,11 +264,11 @@ Description: ${i.desc}\`\`\``);
         });
         menu += `\n ╰─────────────┈⚆`;
       });
-menu += `\n\n𝗜𝗭𝗨𝗠𝗜-𝗫𝗗`;
+menu += `\n\n𝗔𝗦𝗧𝗥𝗢-𝗫𝗗`;
       let penu = tiny(menu)
       let img = config.BOT_INFO.split(';')[2]
       return await message.sendFromUrl(img, {fileLength: "5555544444", gifPlayback: true, contextInfo: { externalAdReply: {
-title: "𝛬𝑆𝛵𝑅𝛰 - 𝜲𝐷🥵🎌",
+title: "𝛬𝑆𝛵𝑅𝛰-𝜲𝐷🤬",
 body: "",
 sourceUrl: "",
 mediaUrl: "",
@@ -320,7 +320,7 @@ command(
       if (desc) menu += `\n│  Use: \`\`\`${desc}\`\`\``;
       menu += `\n│\n`;
     });
-    menu += `╰───────┈┫「 𝐈𝐙𝐔𝐌𝐈 」┣┈────♡`;
+    menu += `╰───────┈┫「 𝐀𝐒𝐓𝐑𝐎 」┣┈────♡`;
     return await message.reply(message.jid, { text: (tiny(menu)) })
 })
 
