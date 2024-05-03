@@ -42,7 +42,7 @@
       "value": "false"
     },
     "SUDO": {
-      "description": "sudo numbers with country code seperate with , for multiple numbers",
+      "description": "add your bot mumber here for run Izumi",
       "required": false
     },
     "WORK_TYPE": {
