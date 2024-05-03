@@ -30,7 +30,7 @@ forwardingScore: 999,
       isForwarded: true,
             forwardedNewsletterMessageInfo: {
                 newsletterJid: '120363239634100086@newsletter',
-                newsletterName: "𝗜𝗭𝗨𝗠𝗜-𝗫𝗗🧚‍♂️",
+                newsletterName: "𝗔𝗦𝗧𝗥𝗢-𝗫𝗗🧚‍♂️",
                 serverMessageId: -1
             }} }, {quoted: message })
 }catch(error){
