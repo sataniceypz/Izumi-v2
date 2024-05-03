@@ -268,14 +268,14 @@ menu += `\n\n𝗜𝗭𝗨𝗠𝗜-𝗫𝗗`;
       let penu = tiny(menu)
       let img = config.BOT_INFO.split(';')[2]
       return await message.sendFromUrl(img, {fileLength: "5555544444", gifPlayback: true, contextInfo: { externalAdReply: {
-title: "𝗜𝗭𝗨𝗠𝗜🧚‍♂️",
+title: "𝛬𝑆𝛵𝑅𝛰 - 𝜲𝐷🥵🎌",
 body: "",
 sourceUrl: "",
 mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Qh1AEV0.jpeg" }}, caption: (penu)}, {quoted: message })
+thumbnailUrl: "https://i.imgur.com/PGm50t6.jpeg" }}, caption: (penu)}, {quoted: message })
     }
 }catch(e){
 message.reply(e)
