@@ -8,8 +8,8 @@ src="https://tenor.com/view/school-live-cute-hello-anime-girl-yuki-takeya-gif-14
 
 </div>
         
-## IZUMI-XD Whatsapp Bot
-IZUMI-XD - Simple whatsapp Multi Device bot based on 
+## ASTRO-XD Whatsapp Bot
+ASTRO-XD - Simple whatsapp Multi Device bot based on 
 Xasena 
 
 ``` Full Open Source```
