@@ -1,6 +1,6 @@
 <div align="center">
 <img 
-src="https://i.imgur.com/Uc0uIkO.jpeg" alt="img" width="80" height="80"/>
+src="https://i.imgur.com/dilVhjc.jpeg" alt="img" width="80" height="80"/>
 </p>
         <img 
 src="https://tenor.com/view/school-live-cute-hello-anime-girl-yuki-takeya-gif-14815980.gif" alt="GIF" width="190" height="190"/>
@@ -20,7 +20,7 @@ Xasena
 
 1. Fork This Repository
    <br>
-<a href='https://github.com/sataniceypz/Izumi-V2/fork' target="_blank"><img alt='FORK' src='https://img.shields.io/badge/fork-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
+<a href='https://github.com/rikkubot/Izumi-V2/fork' target="_blank"><img alt='FORK' src='https://img.shields.io/badge/fork-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
 2. Get Session I'D.
 
 ### QR 1
@@ -31,7 +31,7 @@ Xasena
 ### QR 2
 .
     <br>
-<a href='https://qr-izumi.onrender.com' target="_blank"><img alt='SCAN QR ' src='https://img.shields.io/badge/get_session-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
+<a href='https://qr-astro.onrender.com' target="_blank"><img alt='SCAN QR ' src='https://img.shields.io/badge/get_session-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
 
 ***
 ### Deploy
@@ -44,7 +44,7 @@ Xasena
 ***
 * Now Deploy
     <br>
-<a href='https://heroku.com/deploy?template=https://github.com/sataniceypz/Izumi-V2' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/-DEPLOY-black?style=for-the-badge&logo=heroku&logoColor=white'/></a>
+<a href='https://heroku.com/deploy?template=https://github.com/rikkubot/Izumi-V2' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/-DEPLOY-black?style=for-the-badge&logo=heroku&logoColor=white'/></a>
 
 
 ***
@@ -59,7 +59,7 @@ Xasena
 ***
 * EXTERNAL-PLUGINS
      <br>
-<a href='https://github.com/sataniceypz/IZUMI-EXPLUGINS' target="_blank"><img alt='Izumi-xd' src='https://img.shields.io/badge/EXPLUGIN-100000?style=for-the-badge&logo=github&logoColor=white&labelColor=black&color=black'/></a>
+<a href='https://github.com/rikkubot/IZUMI-EXPLUGINS' target="_blank"><img alt='Izumi-xd' src='https://img.shields.io/badge/EXPLUGIN-100000?style=for-the-badge&logo=github&logoColor=white&labelColor=black&color=black'/></a>
 
 #### THANKS TO
 - [ Louis-XD❤️](https://github.com/Louis-XD) <br>
