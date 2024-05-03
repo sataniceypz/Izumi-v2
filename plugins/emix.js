@@ -15,14 +15,14 @@ try {
         await message.sendMessage(
       buff,
       { packname: config.STICKER_DATA.split(";")[0], author: config.STICKER_DATA.split(";")[1], contextInfo: { externalAdReply: {
-title: "𝐈𝐙𝐔𝐌𝐈-𝐗𝐃",
+title: "𝐀𝐒𝐓𝐑𝐎-𝐗𝐃",
 body: "𝙚𝙢𝙤𝙟𝙞 𝙢𝙞𝙭𝙚𝙙",
 sourceUrl: "",
 mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }} },
+thumbnailUrl: "https://i.imgur.com/dilVhjc.jpeg" }} },
       "sticker"
     );
     } catch (error) {
