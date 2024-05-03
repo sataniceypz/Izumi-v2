@@ -28,6 +28,6 @@ mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/Ou56ggv.jpeg" }}, caption: (txt)}, {quoted: message })
+thumbnailUrl: "https://i.imgur.com/bZlTi5a.jpeg" }}, caption: (txt)}, {quoted: message })
     }
     );
