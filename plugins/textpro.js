@@ -1,5 +1,5 @@
-const X = "*Converted By Ezra-XD*"
-const R = '_*Need Text*_\n*Example: .gfx ezra|xd*'
+const X = "*Converted By Izumi-XD*"
+const R = '_*Need Text*_\n*Example: .gfx Izumi|xd*'
 const { command, isPrivate } = require("../lib/");
 const { ephoto, textpro, photooxy } = require("mumaker");
 const tp = "https://textpro.me/"
