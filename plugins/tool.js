@@ -58,7 +58,7 @@ let buff = await m.quoted.download();
 > *Genre* : ${data.genres}          
 > *Release* : ${data.release_date}
 > *YouTube Link* : ${data.youtube}
-> *Spotify Link* : ${data.spotify}\n\n𝐈𝐙𝐔𝐌𝐈-𝐗𝐃`
+> *Spotify Link* : ${data.spotify}\n\n𝐀𝐒𝐓𝐑𝐎-𝐗𝐃`
                    await message.client.sendMessage(message.jid,{ document :{ url: "https://www.mediafire.com/file/n1qjfxjgvt0ovm2/IMG-20240211-WA0086_%25281%2529.pdf/file" }, fileName: "𝗙𝗜𝗡𝗗 𝗥𝗘𝗦𝗨𝗟𝗧" , mimetype: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileLength: "999999950", contextInfo: {
       
       mentionedJid: [m.sender],
@@ -66,7 +66,7 @@ forwardingScore: 999,
       isForwarded: true,
             forwardedNewsletterMessageInfo: {
                 newsletterJid: '120363239634100086@newsletter',
-                newsletterName: "𝗜𝗭𝗨𝗠𝗜-𝗫𝗗🧚‍♂️",
+                newsletterName: "𝗔𝗦𝗧𝗥𝗢-𝗫𝗗🧚‍♂️",
                 serverMessageId: -1
             }}, caption: (zeta)}, {quoted: message })
     }
