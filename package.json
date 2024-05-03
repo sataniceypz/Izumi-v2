@@ -1,11 +1,11 @@
 {
-  "name": "Izumi-XD",
+  "name": "Astro-XD",
   "version": "2.0.0",
-  "description": "Izumi-md simple multi device WhatsApp Bot.",
+  "description": "Astro-md simple multi device WhatsApp Bot.",
   "main": "./index.js",
   "type": "commonjs",
   "scripts": {
-    "start":  "pm2 start . --attach --name izumi"
+    "start":  "pm2 start . --attach --name astro"
   },
   "repository": {
     "type": "git",
@@ -18,13 +18,13 @@
     "Zeta",
     "sparkyapi"
   ],
-  "author": "Izumi-XD",
-  "developer": "Eypz",
+  "author": "Astro-XD",
+  "developer": "Astro",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/sataniceypz/Izumi-v2/issues"
+    "url": "https://github.com/rikkubot/Izumi-v2/issues"
   },
-  "homepage": "https://github.com/sataniceypz/Izumi-v2#readme",
+  "homepage": "https://github.com/rikkubot/Izumi-v2#readme",
   "dependencies": {
     "@whiskeysockets/baileys": "^6.6.0",
     "@adiwajshing/keyed-db": "^0.2.4",
