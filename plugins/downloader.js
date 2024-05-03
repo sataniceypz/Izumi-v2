@@ -18,14 +18,14 @@ var song = res.data
 await message.client.sendMessage(message.jid, { text: `*_Downloading ${song.data.title}_*` },{ quoted: message})
 const aswinsparky = await (await fetch(`${song.data.downloadUrl}`)).buffer()
 await message.client.sendMessage(message.jid, { audio :aswinsparky,  mimetype:"audio/mpeg", contextInfo: { externalAdReply: {
-title: "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗",
+title: "𝗔𝗦𝗧𝗥𝗢 𝗫𝗗",
 body: "𝙎𝙤𝙣𝙜 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮",
 sourceUrl: "",
 mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/whhHEyY.jpeg" }} }, {quoted: message })
+thumbnailUrl: "https://i.imgur.com/dilVhjc.jpeg" }} }, {quoted: message })
     }
     );
 
@@ -43,14 +43,14 @@ command(
 let {result} = await getJson(`https://api-aswin-sparky.koyeb.app/api/downloader/yt_video?search=${match}`);
 await message.client.sendMessage(message.jid, { text: `*_Downloading ${result.title}_*` },{ quoted: message})
 return await message.sendFromUrl(result.url, {contextInfo: { externalAdReply: {
-title: "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗",
+title: "𝗔𝗦𝗧𝗥𝗢 𝗫𝗗",
 body: "𝙑𝙞𝙙𝙚𝙤 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮",
 sourceUrl: "",
 mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/whhHEyY.jpeg" }}, caption: `*${result.title}*`}, {quoted: message })
+thumbnailUrl: "https://i.imgur.com/dilVhjc.jpeg" }}, caption: `*${result.title}*`}, {quoted: message })
     });
 
 // Zeta-XD 
@@ -66,14 +66,14 @@ command(
         if (!match) return await message.reply("*_Need YouTube Url_*");
         let dat = `https://api-brunosobrino.onrender.com/api/v1/ytmp3?url=${match}`
 await message.client.sendMessage(message.jid, { audio :{url: dat },  mimetype:"audio/mpeg", contextInfo: { externalAdReply: {
-title: "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗",
+title: "𝗔𝗦𝗧𝗥𝗢 𝗫𝗗",
 body: "𝙎𝙤𝙣𝙜 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮",
 sourceUrl: "",
 mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/whhHEyY.jpeg" }}, }, {quoted: message })
+thumbnailUrl: "https://i.imgur.com/dilVhjc.jpeg" }}, }, {quoted: message })
     }
     );
 
@@ -88,14 +88,14 @@ command(
     async (message, match) => {
         if (!match) return await message.reply("*_Need YouTube Url_*");
 await message.sendFromUrl(`https://api-brunosobrino.onrender.com/api/v1/ytmp4?url=${match}`, {contextInfo: { externalAdReply: {
-title: "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗",
+title: "𝗔𝗦𝗧𝗥𝗢 𝗫𝗗",
 body: "𝙑𝙞𝙙𝙚𝙤 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮",
 sourceUrl: "",
 mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/whhHEyY.jpeg" }}, caption : (X.CAPTION)}, {quoted : message})
+thumbnailUrl: "https://i.imgur.com/dilVhjc.jpeg" }}, caption : (X.CAPTION)}, {quoted : message})
 });
 
 
@@ -127,7 +127,7 @@ command(
     match = match || message.reply_message.text
    if (!match)return message.reply(`*_Need instagram Link_*`)
 let {data} = await getJson(`https://api-aswin-sparky.koyeb.app/api/downloader/igdl?url=${match}`)
-await message.sendFromUrl(`${data[0].url}`, {caption: "*Izumi🧚‍♂️*"})
+await message.sendFromUrl(`${data[0].url}`, {caption: "*Astro🧚‍♂️*"})
 });
 // Zeta-XD
 
@@ -164,13 +164,13 @@ command(
         if (!match) return await message.sendMessage("*_Need Pinterest Url_*");
 var {result} = await getJson(`https://api.lokiser.xyz/api/pinterestdl?link=${match}`)
 await message.sendFromUrl(result.LokiXer.url,{ contextInfo: { externalAdReply: {
-title: "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗",
+title: "𝗔𝗦𝗧𝗥𝗢 𝗫𝗗",
 body: ``,
 sourceUrl: "",
 mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: false,
-thumbnailUrl: "https://i.imgur.com/whhHEyY.jpeg" }}, caption: (X.CAPTION)}, {quoted: message})
+thumbnailUrl: "https://i.imgur.com/dilVhjc.jpeg" }}, caption: (X.CAPTION)}, {quoted: message})
     }
     );
