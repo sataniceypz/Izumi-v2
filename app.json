@@ -42,7 +42,7 @@
       "value": "false"
     },
     "SUDO": {
-      "description": "add your bot mumber here for run Izumi",
+      "description": "add your bot number here for run Izumi",
       "required": false
     },
     "WORK_TYPE": {
