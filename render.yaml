@@ -22,7 +22,7 @@ services:
       - key: AUDIO_DATA
         value: 𝐄𝐘𝐏𝐙 ; 𝗜𝗭𝗨𝗠𝗜-𝗫𝗗 ; https://i.imgur.com/Uc0uIkO.jpeg
       - key: SUDO
-        value: 917994489493
+        sync: false
       - key: ALLWAYS_ONLINE
         value: false
       - key: CAPTIOM
