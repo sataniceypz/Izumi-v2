@@ -118,7 +118,7 @@ await message.sendFromUrl(buff, {quoted: message})
 // Zeta Kunda // */
 command(
   {
-    pattern: "tst",
+    pattern: "insta",
     fromMe: isPrivate,
     desc: "Instagram Reel/Post Downloader",
     type: "downloader",
