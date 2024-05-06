@@ -118,7 +118,7 @@ await message.sendFromUrl(buff, {quoted: message})
 // Zeta Kunda // */
 command(
   {
-    pattern: "test",
+    pattern: "tst",
     fromMe: isPrivate,
     desc: "Instagram Reel/Post Downloader",
     type: "downloader",
@@ -128,9 +128,8 @@ command(
    if (!match)return message.reply(`*_Need instagram Link_*`)
 const res = await axios.get(`https://api-ironman444ff.koyeb.app/ironman/insta?url=${match}`);
 var video = res.data[0].download_link;
-await message.sendFromUrl(video);
+await message.sendFromUrl(video, { caption: "Izumi🧚"});
 });
-// Zeta-XD
 
 command(
   {
