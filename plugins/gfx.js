@@ -1,7 +1,7 @@
 const { command, isPrivate } = require("../lib/");
-const R = "*_Example: gfx1 Zeta-XD|its's me|Ser_*";
+const R = "*_Example: gfx1 Astro-XD|its's me|Ser_*";
 const base = "https://upper-romy-inrl-bot.koyeb.app/api/gfx/";
-let api = "zeta007";
+let api = "astroh007";
 const { CAPTION } = require("../config");
 const X = require("../config");
 
