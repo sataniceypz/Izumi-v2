@@ -26,12 +26,12 @@ Xasena
 ### QR 1
 .
     <br>
-<a href='https://izumi-v2-qr-39378af53ae7.herokuapp.com/' target="_blank"><img alt='SCAN QR ' src='https://img.shields.io/badge/get_session-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
+<a href='https://izumi-7s2v.onrender.com/' target="_blank"><img alt='SCAN QR ' src='https://img.shields.io/badge/get_session-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
 
 ### QR 2
 .
     <br>
-<a href='https://qr-izumi.onrender.com' target="_blank"><img alt='SCAN QR ' src='https://img.shields.io/badge/get_session-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
+<a href='https://izumi-7s2v.onrender.com/' target="_blank"><img alt='SCAN QR ' src='https://img.shields.io/badge/get_session-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
 
 ***
 ### Deploy
