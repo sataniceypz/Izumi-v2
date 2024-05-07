@@ -270,7 +270,7 @@ menu += `\n\n𝗔𝗦𝗧𝗥𝗢-𝗫𝗗`;
       return await message.sendFromUrl(img, {fileLength: "5555544444", gifPlayback: true, contextInfo: { externalAdReply: {
 title: "𝛬𝑆𝛵𝑅𝛰-𝜲𝐷🤬",
 body: "𝐄ᴅᴀ 𝐌ᴏᴡɴᴇ 𝐍ɪɪ 𝐇ᴀᴘᴘʏ 𝐀ʟʟᴇ💀💸",
-sourceUrl: "https://wa.me/919846272202?text=hey+vroh🥲",
+sourceUrl: "",
 mediaUrl: "",
 mediaType: 1,
 showAdAttribution: true,
