@@ -63,7 +63,7 @@ var GHuserInfo = await axios
 > *Account Created At* : ${GHuserInfo.created_at}
 > *Last Updated At* : ${GHuserInfo.updated_at}
 
-𝐄𝐙𝐑𝐀-𝐗𝐃`;
+𝐈𝐙𝐔𝐌𝐈-𝐗𝐃`;
 
         await message.client.sendMessage(message.jid, {image: {url: GhUserPP, mimetype: "image/jpeg" }, caption: (resText4)},{quoted:message})
     }
