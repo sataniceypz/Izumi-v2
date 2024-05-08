@@ -1,10 +1,8 @@
-const { command, isPrivate, getBuffer, getJson } = require("../lib");
-const fetch = require("node-fetch");
-const { CAPTION } = require("../config");
+const { command, isPrivate } = require("../lib");
 const axios = require('axios');
 command({
   pattern: "waifu",
-  fromMe: true,
+  fromMe: isPrivate,
   desc: "waifuuuu",
   type: "anime",
   }, async (m, message, match) => {
@@ -12,3 +10,15 @@ command({
     var img = res.data.ironman.url;
     await m.sendFromUrl(img);
     });
+//IRON-M4N
+command({
+  pattern: "neko",
+  fromMe: isPrivate,
+  desc: "waifuuuu",
+  type: "anime",
+  }, async (m, message, match) => {
+    var res = await axios.get('https://api-ironman444ff.koyeb.app/ironman/neko');
+    var img = res.data.ironman.url;
+    await m.sendFromUrl(img);
+    });
+//IRON-M4N
