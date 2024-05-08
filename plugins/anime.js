@@ -45,7 +45,7 @@ command({
     });
 //sataniceypz
 command({
-  pattern: "shinobu",
+  pattern: "akira",
   fromMe: true,
   desc: "waifuuuu",
   type: "anime",
