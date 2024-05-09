@@ -89,7 +89,7 @@ command(
         if (!match) return await message.sendMessage("*_Need a Video URL*");
 
 await message.client.sendMessage(message.jid, { video: { url: `https://api-ironman444ff.koyeb.app/ironman/video?url=${match}`
- }, caption: "𝐈𝐳𝐮𝐦𝐢 🧚" });
+ }, caption: "𝐈𝐳𝐮𝐦𝐢🧚" });
 });
 
 // Zeta-XD 
