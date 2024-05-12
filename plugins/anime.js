@@ -17,8 +17,8 @@ command({
   desc: "waifuuuu",
   type: "anime",
   }, async (m, message, match) => {
-    var res = await axios.get('https://api-ironman444ff.koyeb.app/ironman/neko');
-    var img = res.data.ironman.url;
+    var res = await axios.get('https://api.waifu.pics/sfw/neko');
+    var img = res.data.url;
     await m.sendFromUrl(img);
     });
 //IRON-M4N
