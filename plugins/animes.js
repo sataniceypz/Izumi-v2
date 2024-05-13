@@ -1,5 +1,5 @@
+const { command, isPrivate } = require("../lib");
 const axios = require('axios');
-const { getBuffer } = require('../lib');
 command(
  {
      pattern: "random-anime-s",
