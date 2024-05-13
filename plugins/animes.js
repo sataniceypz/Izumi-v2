@@ -103,8 +103,6 @@ async (m, message, match) => {
   );
 });
 //sataniceypz
-const axios = require('axios');
-const { getBuffer } = require('../lib')
 command(
  {
      pattern: "cry",
