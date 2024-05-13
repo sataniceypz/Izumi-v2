@@ -85,3 +85,16 @@ const { name, username, avatar, posts, following, followers, description } =
 await message.client.sendMessage(message.jid, { image:{url: avatar} ,  mimetype:"image/jpeg", caption: `\n*INSTAGRAM DETAILS*\n\n> *USERNAME* : ${username}\n> *NAME* : ${name}\n> *BIO* : ${description}\n> *POSTS* : ${posts}\n> *FOLLOWERS* : ${followers}\n> *FOLLOWING* : ${following}\n\n𝐈𝐙𝐔𝐌𝐈-𝐗𝐃`}, {quoted: message });
     }
     );
+//sataniceypz
+command(
+    {
+        pattern: "lyrics",
+        fromMe: isPrivate,
+        desc: "Lyrics",
+        type: "user",
+    },
+    async (message, match) => {
+        if (!match) return await message.reply(`*_Need Text_*\n*Eg:- .lyrics let her go*`);
+let {data} = await getJson(`https://api-aswin-sparky.koyeb.app/api/search/lyrics?search=${match}`);
+await message.client.sendMessage(message.jid, { text: data })
+});
