@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: IZUMI-V2
+    env: node
+    branch: main
+    repo: https://github.com/sataniceypz/Izumi-v2.git
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    autoDeploy: false
+    envVars:
+      - key: SESSION_ID
+        sync: false
+      - key: BOT_INFO
+        value: 𝐄𝐘𝐏𝐙 ; 𝗜𝗭𝗨𝗠𝗜-𝗫𝗗 ; https://telegra.ph/file/c092ab6684953575dac78.jpg
+      - key: ALWAYS_ONLINE
+        value: true
+      - key: AUTO_STATUS_VIEWS
+        value: true
+      - key: AUDIO_DATA
+        value: 𝐄𝐘𝐏𝐙 ; 𝗜𝗭𝗨𝗠𝗜-𝗫𝗗 ; https://telegra.ph/file/c092ab6684953575dac78.jpg
+      - key: PREFIX
+        value: ^
+      - key: WORK_TYPE
+        value: private
+      - key: SERVER
+        value: render
+      - key: CAPTION
+        value: 𝗜𝗭𝗨𝗠𝗜-𝗫𝗗
+      - key: STICKER_DATA
+        value: 𝗜𝗭𝗨𝗠𝗜-𝗫𝗗;𝐄𝐘𝐏𝐙
+      - key: SUDO
+        value: 917994489493
+      - key: SERVERURL
+        value:
+      - key: DATABASE_URL
+        sync: false
+      - key: LOGS
+        value: true
