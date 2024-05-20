@@ -33,20 +33,24 @@ Xasena
 <a href='https://izumi-7s2v.onrender.com/' target="_blank"><img alt='SCAN QR ' src='https://img.shields.io/badge/get_session-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
 
 ***
-### Deploy
+### Deploy on Heroku
 ***
 * If You don't have a account in Heroku Create a account.
     <br>
 <a href='https://signup.heroku.com/' target="_blank"><img alt='Heroku' src='https://img.shields.io/badge/-Create-black?style=for-the-badge&logo=heroku&logoColor=white'/></a>
-
-
 ***
 * Now Deploy
     <br>
 <a href='https://heroku.com/deploy?template=https://github.com/sataniceypz/Izumi-V2' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/-DEPLOY-black?style=for-the-badge&logo=heroku&logoColor=white'/></a>
 
+### Deploy on Codespaces
+***
+* Deploy
+    <br>
+<a href='https://github.com/codespaces/new?skip_quickstart=true&machine=basicLinux32gb&repo=792451917&ref=main&geo=SoutheastAsia' target="_blank"><img alt='Github' src='https://img.shields.io/badge/-Deploy-black?style=for-the-badge&logo=github&logoColor=white'/></a>
 
 ***
+### Izumi Support
 * Join Group For Help
      <br>
 <a href="https://chat.whatsapp.com/KHvcGD7aEUo8gPocJsYXZe"><img alt="WhatsApp" src="https://img.shields.io/badge/-Whatsapp%20Group-black?style=for-the-badge&logo=whatsapp&logoColor=white"/></a>
