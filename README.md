@@ -41,7 +41,7 @@ Xasena
 ***
 * Now Deploy
     <br>
-<a href='https://heroku.com/deploy?template=https://github.com/sataniceypz/Izumi-V2' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/-DEPLOY-black?style=for-the-badge&logo=heroku&logoColor=white'/></a>
+<a href='https://eypz.github.io/Izumi-xd-deploy/' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/-DEPLOY-black?style=for-the-badge&logo=heroku&logoColor=white'/></a>
 
 ### Deploy on Codespaces
 ***
