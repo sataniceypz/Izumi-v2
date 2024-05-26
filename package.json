@@ -26,8 +26,7 @@
   },
   "homepage": "https://github.com/eypz/Izumi-v2#readme",
   "dependencies": {
-    "@whiskeysockets/baileys": "^6.6.0",
-    "maher-zubair-baileys": "^6.6.5",
+    "@whiskeysockets/baileys": "git+https://github.com/A-d-i-t-h-y-a-n/Baileys.js.git",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "3.0.0",
     "@neeraj-x0/textpro": "^1.0.3",
