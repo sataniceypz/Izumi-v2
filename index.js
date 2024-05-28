@@ -201,5 +201,6 @@ if (!fs.existsSync("./lib/session/creds.json")) {
   }
 }
 
-// Call the initialization function
-initialize();
+setTimeout(() => {
+  initialize();
+}, 3000);
