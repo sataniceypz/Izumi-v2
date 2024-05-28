@@ -64,7 +64,7 @@ async function initialize() {
     await connectToWhatsApp();
   } catch (error) {
     console.error("Initialization error:", error);
-    process.exit(1); // Exit with error status
+//    process.exit(1); // Exit with error status
   }
 } 
 
@@ -197,7 +197,7 @@ if (!fs.existsSync("./lib/session/creds.json")) {
     });
   } catch (error) {
     console.error("Error connecting to WhatsApp:", error);
-    process.exit(1); // Exit with error status
+   // process.exit(1); // Exit with error status
   }
 }
 
