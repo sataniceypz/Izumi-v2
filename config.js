@@ -13,7 +13,7 @@ module.exports = {
   ANTILINK_ACTION: process.env.ANTI_LINK || "kick",
   SESSION_ID:process.env.SESSION_ID || " ",
   LANG: process.env.LANG || "EN",
-  HANDLERS: process.env.PREFIX || '^[.]',
+  HANDLERS: (process.env.HANDLERS || '^[.,!]').trim(),
   BRANCH: "main",
   WARN_COUNT: 3,
   STICKER_DATA: process.env.STICKER_DATA || "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;𝐄𝐘𝐏𝐙",
