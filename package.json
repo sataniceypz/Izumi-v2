@@ -67,8 +67,6 @@
     "qrcode": "^1.5.1",
     "qrcode-reader": "^1.0.4",
     "qs": "^6.11.0",
-    "raganork-bot": "^3.0.1",
-    "scraper-x0": "^1.0.6",
     "sequelize": "^6.23.0",
     "sharp": "^0.30.7",
     "simple-git": "^3.14.1",
