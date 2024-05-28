@@ -1,7 +1,7 @@
 {
-  "name": "Izumi-v2",
-  "version": "2.0.0",
-  "description": "IZUMI-MD simple multi device WhatsApp Bot.",
+  "name": "Izumi-XD",
+  "version": "1.0.0",
+  "description": "Izumi-md simple multi device WhatsApp Bot.",
   "main": "./index.js",
   "type": "commonjs",
   "scripts": {
@@ -9,30 +9,29 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eypz/Izumi-v2.git"
+    "url": "git+https://github.com/sataniceypz/Izumi-v2.git"
   },
   "keywords": [
     "bot",
-    "izumi",
-    "Eypz",
-    "xasena",
+    "ai",
+    "Ezra",
+    "Zeta",
     "sparkyapi"
   ],
-  "author": "EYPZ",
-  "developer": "EYPZ",
+  "author": "Izumi-XD",
+  "developer": "Zeta",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/eypz/Izumi-v2/issues"
+    "url": "https://github.com/sataniceypz/Izumi-v2/issues"
   },
-  "homepage": "https://github.com/eypz/Izumi-v2#readme",
+  "homepage": "https://github.com/sataniceypz/Izumi-v2#readme",
   "dependencies": {
     "@whiskeysockets/baileys": "git+https://github.com/A-d-i-t-h-y-a-n/Baileys.js.git",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "3.0.0",
     "@neeraj-x0/textpro": "^1.0.3",
     "@vitalets/google-translate-api": "^9.2.0",
-    "acrcloud": "^1.4.0",
-    "axios": "^1.4.0",
+    "axios": "^1.3.3",
     "bitly": "^7.1.2",
     "browser-id3-writer": "^4.4.0",
     "chatgpt": "^5.2.5",
@@ -52,8 +51,6 @@
     "imgbb-uploader": "^1.5.1",
     "jimp": "^0.16.1",
     "jsdom": "^20.0.0",
-    "jsqr": "^1.4.0",
-     "jszip": "^3.10.1", 
     "lodash": "^4.17.21",
     "moment-timezone": "^0.5.40",
     "mumaker": "^2.0.0",
@@ -67,6 +64,8 @@
     "qrcode": "^1.5.1",
     "qrcode-reader": "^1.0.4",
     "qs": "^6.11.0",
+    "raganork-bot": "^3.0.1",
+    "scraper-x0": "^1.0.6",
     "sequelize": "^6.23.0",
     "sharp": "^0.30.7",
     "simple-git": "^3.14.1",
