@@ -1,198 +1,205 @@
 const {
   default: makeWASocket,
   useMultiFileAuthState,
+  DisconnectReason,
   Browsers,
-  makeInMemoryStore,
+  fetchLatestBaileysVersion,
+  delay,
+  loadSession,
+  makeCacheableSignalKeyStore,
 } = require("@whiskeysockets/baileys");
 const fs = require("fs");
-const { serialize } = require("./lib/serialize");
-const { Message, commands } = require("./lib/index");
-const pino = require("pino");
 const path = require("path");
-const events = require("./lib/event");
-const got = require("got");
+const pino = require("pino");
 const config = require("./config");
+const {
+  loadMessage,
+  saveMessage,
+  saveChat,
+} = require("./lib/database/store");
+const { Message, commands, numToJid, sudoIds, PREFIX } = require("./lib/index");
+const { serialize } = require("./lib/serialize");
+const { MakeSession } = require("./lib/session");
 const { PluginDB } = require("./lib/database/plugins");
 const Greetings = require("./lib/Greetings");
-const { MakeSession } = require("./lib/session");
 const store = makeInMemoryStore({
   logger: pino().child({ level: "silent", stream: "store" }),
 });
+// Set global variable for base directory
+global.__basedir = __dirname;
 
-require("events").EventEmitter.defaultMaxListeners = 500;
-      
+// Function to read and require JavaScript files from a directory
+const readAndRequireFiles = async (directory) => {
+  try {
+    const files = await fs.promises.readdir(directory);
+    return Promise.all(
+      files
+        .filter((file) => path.extname(file).toLowerCase() === ".js")
+        .map((file) => require(path.join(directory, file)))
+    );
+  } catch (error) {
+    console.error("Error reading and requiring files:", error);
+    throw error; // Rethrow the error for higher-level handling
+  }
+};
+
+// Main function to connect and initialize
+async function initialize() {
+  console.log("WhatsApp Bot Initializing...");
+
+  try {
+    // Read and require database files
+    await readAndRequireFiles(path.join(__dirname, "/lib/database"));
+
+    // Sync database
+    await config.DATABASE.sync();
+    console.log("Database synchronized.");
+
+    // Read and require plugin files
+    console.log("Installing Plugins...");
+    await readAndRequireFiles(path.join(__dirname, "/plugins"));
+    console.log("Plugins Installed!");
+
+    // Connect to WhatsApp
+    await connectToWhatsApp();
+  } catch (error) {
+    console.error("Initialization error:", error);
+    process.exit(1); // Exit with error status
+  }
+} 
+
+// Function to connect to WhatsApp
+async function connectToWhatsApp() {
 if (!fs.existsSync("./lib/session/creds.json")) {
   MakeSession(config.SESSION_ID, "lib/session", "mongodb+srv://eypzbuddy:cmoflChJCdpd94EE@izumi-eypz.vwpdjxv.mongodb.net/?retryWrites=true&w=majority&appName=izumi-eypz").then(
     console.log("Vesrion : " + require("./package.json").version)
   );
 }
-fs.readdirSync("./lib/database/").forEach((plugin) => {
-  if (path.extname(plugin).toLowerCase() == ".js") {
-    require("./lib/database/" + plugin);
-  }
-});
-
-const express = require('express');
-const app = express();
-const port = 3000;
-
-// Define a route
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is listening at http://localhost:${port}`);
-});
-
-async function Abhiy() {
-  console.log("Syncing Database");
-  await config.DATABASE.sync();
-
-  const { state, saveCreds } = await useMultiFileAuthState(
+  try {
+    console.log("Connecting to WhatsApp...");
+      const { state, saveCreds } = await useMultiFileAuthState(
   "./lib/session" ,
     pino({ level: "silent" })
   );
-  let conn = makeWASocket({
-    logger: pino({ level: "silent" }),
-    auth: state,
-    printQRInTerminal: true,
+    const { version } = await fetchLatestBaileysVersion();
+    const client = makeWASocket({
+      logger,
+      printQRInTerminal: true,
+      downloadHistory: false,
+      syncFullHistory: false,
+      browser: Browsers.macOS("Desktop"),
+      auth: {
+        creds: state.creds,
+        keys: makeCacheableSignalKeyStore(state.keys, logger),
+      },
+      version,
+    });
+       client.ev.on("connection.update", async (node) => {
+      const { connection, lastDisconnect } = node;
+      if (connection === "open") {
+        console.log("Connected to WhatsApp.");
+        const sudo = numToJid(config.SUDO.split(",")[0]) || client.user.id;
+        await client.sendMessage(sudo, {
+          text: `*BOT CONNECTED*\n\nPREFIX: ${PREFIX}\nPLUGINS: ${
+            commands.filter((command) => command.pattern).length
+          }\nVERSION: ${require("./package.json").version}`,
+        });
+      }
+      if (
+        connection === "close" &&
+        lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut
+      ) {
+        console.log("Reconnecting...");
+        await delay(300);
+        connectToWhatsApp();
+      } else if (connection === "close") {
+        console.log("Connection closed.");
+        await delay(3000);
+        process.exit(0);
+      }
+    });
 
-    browser: Browsers.macOS("Desktop"),
-    downloadHistory: false,
-    syncFullHistory: false,
-  });
-  store.bind(conn.ev);
-  //store.readFromFile("./lib/afiya.json");
-  setInterval(() => {
-    store.writeToFile("./lib/store_db.json");
-    console.log("saved store");
-  }, 30 * 60 * 1000);
+    client.ev.on("creds.update", saveCreds);
 
-  conn.ev.on("connection.update", async (s) => {
-    const { connection, lastDisconnect } = s;
-    if (connection === "connecting") {
-      console.log("Izumi");
-      console.log("𝗥𝗘𝗔𝗗𝗜𝗡𝗚 𝗦𝗘𝗦𝗦𝗜𝗢𝗡 𝗜𝗗 🧚‍♂️");
-    }
+    client.ev.on("messages.upsert", async (upsert) => {
+      if (!upsert.type === "notify") return;
+      msg = upsert.messages[0];
+    await serialize(JSON.parse(JSON.stringify(msg)), client);
+     await saveMessage(upsert.messages[0], msg.sender);
+      if (!msg.message) return;
+      const message = new Message(client, msg);
+      if (config.LOG_MSG && !message.data.key.fromMe)
+        console.log(
+          `[MESSAGE] [${message.pushName || message.sender.split("@")[0]}] : ${
+            message.text || message.type || null
+          }`
+        );
+      if (
+        config.READ_MSG == true &&
+        message.data.key.remoteJid !== "status@broadcast"
+      )
+        await client.readMessages([message.data.key]);
+      commands.map(async (command) => {
+        const messageType = {
+          image: "imageMessage",
+          sticker: "stickerMessage",
+          audio: "audioMessage",
+          video: "videoMessage",
+        };
 
-    if (
-      connection === "close" &&
-      lastDisconnect &&
-      lastDisconnect.error &&
-      lastDisconnect.error.output.statusCode != 401
-    ) {
-      console.log(lastDisconnect.error.output.payload);
-      Abhiy();
-    }
+        const isMatch =
+          (command.on &&
+            messageType[command.on] &&
+            message.msg &&
+            message.msg[messageType[command.on]] !== null) ||
+          !command.pattern ||
+          command.pattern.test(message.text) ||
+          (command.on === "text" && message.text) ||
+          (command.on && !messageType[command.on] && !message.msg[command.on]);
 
-    if (connection === "open") {
-    
-      console.log("𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗟𝗢𝗚𝗜𝗡𝗘𝗗 𝗜𝗡𝗧𝗢 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 🧚‍♂️");
-      console.log("𝗜𝗡𝗦𝗧𝗔𝗟𝗟𝗜𝗡𝗚 𝗣𝗟𝗨𝗚𝗜𝗡𝗦 🛠️");
+        if (isMatch) {
+          if (command.fromMe && !message.isSudo) return;
+          if (command.onlyPm && message.isGroup) return;
+          if (command.onlyGroup && !message.isGroup) return;
+          if (command.pattern && config.READ_CMD == true)
+            await client.readMessages([message.data.key]);
+          const match = message.text?.match(command.pattern) || "";
 
-      let plugins = await PluginDB.findAll();
-      plugins.map(async (plugin) => {
-        if (!fs.existsSync("./plugins/" + plugin.dataValues.name + ".js")) {
-          console.log(plugin.dataValues.name);
-          var response = await got(plugin.dataValues.url);
-          if (response.statusCode == 200) {
-            fs.writeFileSync(
-              "./plugins/" + plugin.dataValues.name + ".js",
-              response.body
+          try {
+            await command.function(
+              message,
+              match.length === 6 ? match[3] ?? match[4] : match[2] ?? match[3],
+              client,
             );
-            require("./plugins/" + plugin.dataValues.name + ".js");
+          } catch (e) {
+            if (config.ERROR_MSG) {
+              console.log(e);
+              const sudo =
+                numToJid(config.SUDO.split(",")[0]) || client.user.id;
+              await client.sendMessage(
+                sudo,
+                {
+                  text:
+                    "```─━❲ ERROR REPORT ❳━─\n\nMessage : " +
+                    message.text +
+                    "\nError : " +
+                    e.message +
+                    "\nJid : " +
+                    message.jid +
+                    "```",
+                },
+                { quoted: message.data }
+              );
+            }
           }
         }
       });
-      console.log("𝗣𝗟𝗨𝗚𝗜𝗡𝗦 𝗜𝗡𝗦𝗧𝗔𝗟𝗟𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 🧚‍♂️");
-
-      fs.readdirSync("./plugins").forEach((plugin) => {
-        if (path.extname(plugin).toLowerCase() == ".js") {
-          require("./plugins/" + plugin);
-        }
-      });
-      console.log("𝗜𝗭𝗨𝗠𝗜 𝗫𝗗 𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬🧚‍♂️");
-      let readMore = String.fromCharCode(8206).repeat(4001);
-      let str = `𝗜𝗭𝗨𝗠𝗜-𝗫𝗗 𝗦𝗧𝗔𝗥𝗧𝗘𝗗🧚‍♂️ ${readMore}\n\n\n𝘝𝘌𝘙𝘚𝘐𝘖𝘕   : *${require("./package.json").version }* \n𝘗𝘓𝘜𝘎𝘐𝘕𝘚  : *${events.commands.length}* \n𝘔𝘖𝘋𝘌  : *${config.WORK_TYPE}* \n𝘗𝘙𝘌𝘍𝘐𝘟  : *${config.HANDLERS}*`;
-      conn.sendMessage(conn.user.id, { text: str });
-     try {
-        conn.ev.on("creds.update", saveCreds);
-
-        conn.ev.on("group-participants.update", async (data) => {
-          Greetings(data, conn);
-        });
-        conn.ev.on("messages.upsert", async (m) => {
-          if (m.type !== "notify") return;
-          let ms = m.messages[0];
-          let msg = await serialize(JSON.parse(JSON.stringify(ms)), conn);
-          if (!msg.message) return;
-          let text_msg = msg.body;
-          if (text_msg && config.LOGS)
-            console.log(
-              `At : ${
-                msg.from.endsWith("@g.us")
-                  ? (await conn.groupMetadata(msg.from)).subject
-                  : msg.from
-              }\nFrom : ${msg.sender}\nMessage:${text_msg}`
-            );
-
-          events.commands.map(async (command) => {
-            if (
-              command.fromMe &&
-              !config.SUDO.split(",").includes(
-                msg.sender.split("@")[0] || !msg.isSelf
-              )
-            )
-              return;
-            let comman;
-            if (text_msg) {
-              comman = text_msg.trim().split(/ +/)[0];
-              msg.prefix = new RegExp(config.HANDLERS).test(text_msg)
-                ? text_msg.split("").shift()
-                : ",";
-            }
-            if (command.pattern && command.pattern.test(comman)) {
-              var match;
-              try {
-                match = text_msg.replace(new RegExp(comman, "i"), "").trim();
-              } catch {
-                match = false;
-              }
-              whats = new Message(conn, msg, ms);
-              command.function(whats, match, msg, conn);
-            } else if (text_msg && command.on === "text") {
-              whats = new Message(conn, msg, ms);
-              command.function(whats, text_msg, msg, conn, m);
-            } else if (
-              (command.on === "image" || command.on === "photo") &&
-              msg.type === "imageMessage"
-            ) {
-              whats = new Image(conn, msg, ms);
-              command.function(whats, text_msg, msg, conn, m, ms);
-            } else if (
-              command.on === "sticker" &&
-              msg.type === "stickerMessage"
-            ) {
-              whats = new Sticker(conn, msg, ms);
-              command.function(whats, msg, conn, m, ms);
-            }
-          });
-        });
-      } catch (e) {
-        console.log(e.stack + "\n\n\n\n\n" + JSON.stringify(msg));
-      }
-    }
-  });
-  process.on("uncaughtException", async (err) => {
-    let error = err.message;
-       
-   await console.log(err);
- await conn.sendMessage(conn.user.id, { text: error });
-    
-  });
+    });
+  } catch (error) {
+    console.error("Error connecting to WhatsApp:", error);
+    process.exit(1); // Exit with error status
+  }
 }
-setTimeout(() => {
-  Abhiy();
-}, 3000);
+
+// Call the initialization function
+initialize();
