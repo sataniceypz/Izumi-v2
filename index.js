@@ -7,6 +7,7 @@ const {
   delay,
   loadSession,
   makeCacheableSignalKeyStore,
+  makeInMemoryStore
 } = require("@whiskeysockets/baileys");
 const fs = require("fs");
 const path = require("path");
