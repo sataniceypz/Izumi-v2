@@ -6,7 +6,7 @@ const {
 } = require("@whiskeysockets/baileys");
 const fs = require("fs");
 const { serialize } = require("./lib/serialize");
-const { Message, commands, numToJid } = require("./lib/index");
+const { Message, commands } = require("./lib/index");
 const pino = require("pino");
 const path = require("path");
 const events = require("./lib/event");
