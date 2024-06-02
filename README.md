@@ -25,7 +25,7 @@ Xasena
 ### QR 
 Get Session Id
     <br>
-<a href='https://izumi-xd-web.onrender.com/' target="_blank"><img alt='SCAN QR ' src='https://img.shields.io/badge/get_session-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
+<a href='https://session-generator-uzwn.onrender.com/' target="_blank"><img alt='SCAN QR ' src='https://img.shields.io/badge/get_session-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
 
 ***
 ### Deploy on Heroku
