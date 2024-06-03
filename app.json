@@ -34,12 +34,7 @@
        "ALIVE_IMAGE": {
       "description": "Sticker pack name, eg : 𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;𝐄𝐘𝐏𝐙",
       "required": "true",
-      "value": " "
-    },
-       "ALIVE_AUDIO": {
-      "description": "Sticker pack name, eg : 𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;𝐄𝐘𝐏𝐙",
-      "required": "true",
-      "value": " "
+      "value": "https://i.imgur.com/PyQ9iOU.jpeg"
     },
        "BOT_INFO": {
       "description": "Bot info : botname;ownername;imageurl - image or video",
