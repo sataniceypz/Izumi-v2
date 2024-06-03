@@ -11,6 +11,8 @@ module.exports = {
   ANTILINK: toBool(process.env.ANTI_LINK) || false,
   LOGS: toBool(process.env.LOGS) || true,
   ANTILINK_ACTION: process.env.ANTI_LINK || "kick",
+  ALIVE_IMAGE:process.env.ALIVE_IMAGE || " ",
+  ALIVE_AUDIO:process.env.ALIVE_AUDIO || " ",
   SESSION_ID:process.env.SESSION_ID || " ",
   LANG: process.env.LANG || "EN",
   HANDLERS: (process.env.HANDLERS || '^[.,!]').trim(),
