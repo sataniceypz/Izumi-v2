@@ -50,7 +50,6 @@ async function Abhiy() {
     syncFullHistory: false,
   });
   store.bind(conn.ev);
-  //store.readFromFile("./lib/afiya.json");
   setInterval(() => {
     store.writeToFile("./lib/store_db.json");
     console.log("saved store");
