@@ -1,183 +1,89 @@
-const {
-  default: makeWASocket,
-  useMultiFileAuthState,
-  Browsers,
-  makeInMemoryStore,
-} = require("@whiskeysockets/baileys");
-const fs = require("fs");
-const { serialize } = require("./lib/serialize");
-const { Message, Image, Sticker } = require("./lib/Base");
-const pino = require("pino");
-const path = require("path");
-const events = require("./lib/event");
-const got = require("got");
-const config = require("./config");
-const { PluginDB } = require("./lib/database/plugins");
-const Greetings = require("./lib/Greetings");
-const { MakeSession } = require("./lib/session");
-const store = makeInMemoryStore({
-  logger: pino().child({ level: "silent", stream: "store" }),
-});
+const { 
+    makeWASocket, 
+    useMultiFileAuthState, 
+    DisconnectReason, 
+    jidNormalizedUser, 
+    getContentType, 
+    fetchLatestBaileysVersion, 
+    Browsers 
+} = require('@whiskeysockets/baileys');
+const fs = require('fs');
+const P = require('pino');
+const config = require('./config');
+const qrcode = require('qrcode-terminal');
+const { File } = require('megajs');  // MEGA.js for downloading files
 
-require("events").EventEmitter.defaultMaxListeners = 500;
-      
-if (!fs.existsSync("./lib/session/creds.json")) {
-  MakeSession(config.SESSION_ID, "lib/session", "mongodb+srv://eypzbuddy:cmoflChJCdpd94EE@izumi-eypz.vwpdjxv.mongodb.net/?retryWrites=true&w=majority&appName=izumi-eypz").then(
-    console.log("Vesrion : " + require("./package.json").version)
-  );
-}
-fs.readdirSync("./lib/database/").forEach((plugin) => {
-  if (path.extname(plugin).toLowerCase() == ".js") {
-    require("./lib/database/" + plugin);
-  }
-});
-
-async function Abhiy() {
-  console.log("Syncing Database");
-  await config.DATABASE.sync();
-
-  const { state, saveCreds } = await useMultiFileAuthState(
-  "./lib/session" ,
-    pino({ level: "silent" })
-  );
-  let conn = makeWASocket({
-    logger: pino({ level: "silent" }),
-    auth: state,
-    printQRInTerminal: true,
-
-    browser: Browsers.macOS("Desktop"),
-    downloadHistory: false,
-    syncFullHistory: false,
-  });
-  store.bind(conn.ev);
-  setInterval(() => {
-    store.writeToFile("./lib/store_db.json");
-    console.log("saved store");
-  }, 30 * 60 * 1000);
-
-  conn.ev.on("connection.update", async (s) => {
-    const { connection, lastDisconnect } = s;
-    if (connection === "connecting") {
-      console.log("Izumi");
-      console.log("𝗥𝗘𝗔𝗗𝗜𝗡𝗚 𝗦𝗘𝗦𝗦𝗜𝗢𝗡 𝗜𝗗 🧚‍♂️");
-    }
-
-    if (
-      connection === "close" &&
-      lastDisconnect &&
-      lastDisconnect.error &&
-      lastDisconnect.error.output.statusCode != 401
-    ) {
-      console.log(lastDisconnect.error.output.payload);
-      Abhiy();
-    }
-
-    if (connection === "open") {
+//===================SESSION-AUTH============================
+if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
+    // If SESSION_ID is not provided, stop the script
+    if(!config.SESSION_ID) return console.log('Please add your session to SESSION_ID in config !!');
     
-      console.log("𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗟𝗢𝗚𝗜𝗡𝗘𝗗 𝗜𝗡𝗧𝗢 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 🧚‍♂️");
-      console.log("𝗜𝗡𝗦𝗧𝗔𝗟𝗟𝗜𝗡𝗚 𝗣𝗟𝗨𝗚𝗜𝗡𝗦 🛠️");
-
-      let plugins = await PluginDB.findAll();
-      plugins.map(async (plugin) => {
-        if (!fs.existsSync("./plugins/" + plugin.dataValues.name + ".js")) {
-          console.log(plugin.dataValues.name);
-          var response = await got(plugin.dataValues.url);
-          if (response.statusCode == 200) {
-            fs.writeFileSync(
-              "./plugins/" + plugin.dataValues.name + ".js",
-              response.body
-            );
-            require("./plugins/" + plugin.dataValues.name + ".js");
-          }
-        }
-      });
-      console.log("𝗣𝗟𝗨𝗚𝗜𝗡𝗦 𝗜𝗡𝗦𝗧𝗔𝗟𝗟𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 🧚‍♂️");
-
-      fs.readdirSync("./plugins").forEach((plugin) => {
-        if (path.extname(plugin).toLowerCase() == ".js") {
-          require("./plugins/" + plugin);
-        }
-      });
-      console.log("𝗜𝗭𝗨𝗠𝗜 𝗫𝗗 𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬🧚‍♂️");
-      let readMore = String.fromCharCode(8206).repeat(4001);
-      let str = `𝗜𝗭𝗨𝗠𝗜-𝗫𝗗 𝗦𝗧𝗔𝗥𝗧𝗘𝗗🧚‍♂️ ${readMore}\n\n\n𝘝𝘌𝘙𝘚𝘐𝘖𝘕   : *${require("./package.json").version }* \n𝘗𝘓𝘜𝘎𝘐𝘕𝘚  : *${events.commands.length}* \n𝘔𝘖𝘋𝘌  : *${config.WORK_TYPE}* \n𝘗𝘙𝘌𝘍𝘐𝘟  : *${config.HANDLERS}*`;
-      conn.sendMessage(conn.user.id, { text: str });
-     try {
-        conn.ev.on("creds.update", saveCreds);
-
-        conn.ev.on("group-participants.update", async (data) => {
-          Greetings(data, conn);
-        });
-        conn.ev.on("messages.upsert", async (m) => {
-          if (m.type !== "notify") return;
-          let ms = m.messages[0];
-          let msg = await serialize(JSON.parse(JSON.stringify(ms)), conn);
-          if (!msg.message) return;
-          let text_msg = msg.body;
-          if (text_msg && config.LOGS)
-            console.log(
-              `At : ${
-                msg.from.endsWith("@g.us")
-                  ? (await conn.groupMetadata(msg.from)).subject
-                  : msg.from
-              }\nFrom : ${msg.sender}\nMessage:${text_msg}`
-            );
-
-          events.commands.map(async (command) => {
-            if (
-              command.fromMe &&
-              !config.SUDO.split(",").includes(
-                msg.sender.split("@")[0] || !msg.isSelf
-              )
-            )
-              return;
-            let comman;
-            if (text_msg) {
-              comman = text_msg.trim().split(/ +/)[0];
-              msg.prefix = new RegExp(config.HANDLERS).test(text_msg)
-                ? text_msg.split("").shift()
-                : ",";
-            }
-            if (command.pattern && command.pattern.test(comman)) {
-              var match;
-              try {
-                match = text_msg.replace(new RegExp(comman, "i"), "").trim();
-              } catch {
-                match = false;
-              }
-              whats = new Message(conn, msg, ms);
-              command.function(whats, match, msg, conn);
-            } else if (text_msg && command.on === "text") {
-              whats = new Message(conn, msg, ms);
-              command.function(whats, text_msg, msg, conn, m);
-            } else if (
-              (command.on === "image" || command.on === "photo") &&
-              msg.type === "imageMessage"
-            ) {
-              whats = new Image(conn, msg, ms);
-              command.function(whats, text_msg, msg, conn, m, ms);
-            } else if (
-              command.on === "sticker" &&
-              msg.type === "stickerMessage"
-            ) {
-              whats = new Sticker(conn, msg, ms);
-              command.function(whats, msg, conn, m, ms);
-            }
-          });
-        });
-      } catch (e) {
-        console.log(e.stack + "\n\n\n\n\n" + JSON.stringify(msg));
-      }
-    }
-  });
-  process.on("uncaughtException", async (err) => {
-    let error = err.message;
-       
-   await console.log(err);
- await conn.sendMessage(conn.user.id, { text: error });
+    // Using MEGA to download the session file if it doesn't exist
+    const sessdata = config.SESSION_ID;  // Your MEGA file session link (e.g., file ID)
+    const file = File.fromURL(`https://mega.nz/file/${sessdata}`);
     
-  });
+    // Download session file from MEGA
+    file.download((err, data) => {
+        if (err) throw err;
+        
+        // Write the downloaded session data to creds.json
+        fs.writeFileSync(__dirname + '/auth_info_baileys/creds.json', data, () => {
+            console.log("*Session downloaded from MEGA [🌟]*");
+        });
+    });
 }
-setTimeout(() => {
-  Abhiy();
-}, 3000);
+
+const express = require("express");
+const app = express();
+const port = process.env.PORT || 8000;
+
+//=========================== MAIN FUNCTION ================================
+
+async function connectToWA() {
+    console.log("Connecting to WhatsApp...");
+
+    // Authentication with multi-file auth state
+    const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/');
+    const { version } = await fetchLatestBaileysVersion();
+
+    const sock = makeWASocket({
+        logger: P({ level: 'silent' }),
+        printQRInTerminal: true,  // Set to false if not needed
+        browser: Browsers.macOS("Safari"),
+        auth: state,
+        version
+    });
+
+    // Listen for connection updates
+    sock.ev.on('connection.update', (update) => {
+        const { connection, lastDisconnect } = update;
+        if (connection === 'close') {
+            const reason = new Boom(lastDisconnect?.error)?.output.statusCode;
+            if (reason === DisconnectReason.loggedOut) {
+                console.log('Logged out, terminating session.');
+            } else {
+                console.log('Reconnecting...');
+                connectToWA();  // Try to reconnect
+            }
+        } else if (connection === 'open') {
+            console.log('WhatsApp connection established');
+        }
+    });
+
+    // Handle authentication state update
+    sock.ev.on('creds.update', saveCreds);
+
+    // Add your other message handling code here...
+    sock.ev.on('messages.upsert', async (m) => {
+        // Your logic here...
+    });
+
+    return sock;
+}
+
+// Initialize connection
+connectToWA().catch(err => console.log(err));
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
