@@ -1,30 +1,13 @@
 {
-  "name": "Izumi-XD",
-  "version": "1.0.0",
-  "description": "Izumi-md simple multi device WhatsApp Bot.",
-  "main": "./index.js",
-  "type": "commonjs",
+  "name": "Ikuze",
+  "version": "1.1.0",
+  "description": "A WhatsApp bot created using Node.js",
+  "main": "index.js",
   "scripts": {
-    "start": "pm2 start . --attach --name izumi"
+    "start": "pm2 start index.js --deep-monitoring --attach --name izumi",
+    "stop": "pm2 stop izumi",
+    "restart": "pm2 restart izumi"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sataniceypz/Izumi-v2.git"
-  },
-  "keywords": [
-    "bot",
-    "ai",
-    "Ezra",
-    "Zeta",
-    "sparkyapi"
-  ],
-  "author": "Izumi-XD",
-  "developer": "Zeta",
-  "license": "GPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/sataniceypz/Izumi-v2/issues"
-  },
-  "homepage": "https://github.com/sataniceypz/Izumi-v2#readme",
   "dependencies": {
     "@whiskeysockets/baileys": "git+https://github.com/A-d-i-t-h-y-a-n/Baileys.js.git",
     "@adiwajshing/keyed-db": "^0.2.4",
